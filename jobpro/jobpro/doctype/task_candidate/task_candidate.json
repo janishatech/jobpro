@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "creation": "2020-08-30 14:34:43.546007",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "candidate_id",
+  "given_name",
+  "mobile",
+  "column_break_4",
+  "candidate_status",
+  "current_location",
+  "executive_details_section",
+  "user",
+  "column_break_10",
+  "sa_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "candidate_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Candidate ID",
+   "options": "Candidate"
+  },
+  {
+   "fieldname": "given_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Given Name"
+  },
+  {
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "candidate_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Candidate Status",
+   "options": "\nIDB\nSourced\nSubmitted\nShortlisted\nLinedup\nInterviewed\nProposed PSL"
+  },
+  {
+   "fieldname": "current_location",
+   "fieldtype": "Data",
+   "label": "Current Location",
+   "search_index": 1
+  },
+  {
+   "fieldname": "executive_details_section",
+   "fieldtype": "Section Break",
+   "label": "Executive Details"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "Candidate Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sa_name",
+   "fieldtype": "Data",
+   "label": "SA Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-12-31 10:47:31.540767",
+ "modified_by": "Administrator",
+ "module": "jobPRO",
+ "name": "Task Candidate",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

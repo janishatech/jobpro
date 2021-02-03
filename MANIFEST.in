@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include jobpro *.css
+recursive-include jobpro *.csv
+recursive-include jobpro *.html
+recursive-include jobpro *.ico
+recursive-include jobpro *.js
+recursive-include jobpro *.json
+recursive-include jobpro *.md
+recursive-include jobpro *.png
+recursive-include jobpro *.py
+recursive-include jobpro *.svg
+recursive-include jobpro *.txt
+recursive-exclude jobpro *.pyc

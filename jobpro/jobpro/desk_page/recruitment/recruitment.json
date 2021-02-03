@@ -1,0 +1,29 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Recruitment",
+   "links": "[\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"Candidate\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"route\": \"#List/Candidate/List\",\n                    \"label\": \"Candidate\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"Closure\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"label\": \"Closure\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"SAMS\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"route\": \"#List/SAMS/List\",\n                    \"label\": \"SAMS\"\n\t\t\t\t}\n]"
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2020-09-09 19:34:52.658968",
+ "developer_mode_only": 0,
+ "disable_user_customization": 1,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Recruitment",
+ "modified": "2020-12-04 11:50:37.916651",
+ "modified_by": "Administrator",
+ "module": "jobPRO",
+ "name": "Recruitment",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": []
+}
