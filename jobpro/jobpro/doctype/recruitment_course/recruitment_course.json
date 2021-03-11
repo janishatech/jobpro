@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "creation": "2021-02-25 15:57:48.552326",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "count",
+  "column_break_3",
+  "yoe",
+  "nba_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name"
+  },
+  {
+   "fieldname": "count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Count"
+  },
+  {
+   "fieldname": "yoe",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "YOE"
+  },
+  {
+   "fieldname": "nba_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "NBA Status",
+   "options": "\nYES\nNO"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-02-25 17:31:49.377371",
+ "modified_by": "Administrator",
+ "module": "jobPRO",
+ "name": "Recruitment Course",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

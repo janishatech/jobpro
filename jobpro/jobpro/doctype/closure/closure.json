@@ -25,6 +25,7 @@
   "account_manager",
   "column_break_column",
   "territory",
+  "visa_state",
   "task",
   "task_subject",
   "status_summary_section",
@@ -83,6 +84,8 @@
   "column_break_76",
   "center",
   "hospital_location",
+  "ceritification",
+  "is_required",
   "certificate_attestation_section",
   "certificate_attestation",
   "folio_number",
@@ -117,7 +120,6 @@
   "airline",
   "departure_airport",
   "departure_airport_code",
-  "data_113",
   "departure_time",
   "column_break_77",
   "flight_number",
@@ -483,9 +485,8 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Status",
-   "options": "\nPSL\nSales Order\nOffer Letter\nVisa\nPremedical\nFinal Medical\nVisa Stamping\nEmigration\nTicket\nOnboarding\nOnboarded\nDropped\nWaitlisted",
+   "options": "\nPSL\nSales Order\nOffer Letter\nVisa\nPremedical\nCertificate Attestation\nFinal Medical\nVisa Stamping\nEmigration\nTicket\nOnboarding\nOnboarded\nDropped\nWaitlisted",
    "read_only": 1
   },
   {
@@ -579,6 +580,7 @@
    "label": "Premedical"
   },
   {
+   "depends_on": "eval:doc.is_required",
    "fieldname": "certificate_attestation_section",
    "fieldtype": "Section Break",
    "label": "Certificate Attestation"
@@ -757,10 +759,6 @@
    "label": "Departure Airport Code"
   },
   {
-   "fieldname": "data_113",
-   "fieldtype": "Data"
-  },
-  {
    "fetch_from": "arrival_airport.airport_code",
    "fieldname": "arrival_airport_code",
    "fieldtype": "Read Only",
@@ -787,11 +785,27 @@
    "fieldname": "gcc_slip",
    "fieldtype": "Data",
    "label": "GCC Slip"
+  },
+  {
+   "depends_on": "eval:doc.territory == \"UAE\"",
+   "fieldname": "visa_state",
+   "fieldtype": "Link",
+   "label": "Visa State",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "is_required",
+   "fieldtype": "Data",
+   "label": "Is Certificate Required"
+  },
+  {
+   "fieldname": "ceritification",
+   "fieldtype": "Section Break"
   }
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2021-02-03 12:03:50.577682",
+ "modified": "2021-02-26 16:09:38.004359",
  "modified_by": "Administrator",
  "module": "jobPRO",
  "name": "Closure",

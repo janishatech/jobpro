@@ -11,12 +11,12 @@
   "pending_for",
   "candidate_summary_section",
   "given_name",
-  "mobile",
+  "mobile_number",
   "candidate_created_by",
   "column_break_8",
   "candidate_image",
   "sa_agent",
-  "passport_no",
+  "passport_number",
   "position",
   "interview_date",
   "temp_interview_location",
@@ -105,7 +105,6 @@
   "reason_for_leaving",
   "notice_period",
   "experience_details_section",
-  "table_30",
   "special_skill_section",
   "computer_proficiency",
   "english_proficiency",
@@ -162,13 +161,6 @@
    "label": "Given Name / Surname",
    "reqd": 1,
    "search_index": 1
-  },
-  {
-   "fieldname": "mobile",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Mobile / WhatsAPP",
-   "length": 11
   },
   {
    "fieldname": "mail_id",
@@ -285,11 +277,6 @@
    "fieldname": "experience_details_section",
    "fieldtype": "Section Break",
    "label": "Experience Details"
-  },
-  {
-   "fieldname": "table_30",
-   "fieldtype": "Table",
-   "options": "Experience Details"
   },
   {
    "collapsible": 1,
@@ -731,14 +718,6 @@
    "options": "\nIDB\nSourced\nSubmitted\nShortlisted\nLinedup\nInterviewed\nProposed PSL"
   },
   {
-   "fieldname": "passport_no",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Passport Number",
-   "length": 8
-  },
-  {
    "fieldname": "attachments_section",
    "fieldtype": "Section Break",
    "label": "Attachments"
@@ -823,11 +802,26 @@
   {
    "fieldname": "column_break_79",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Passport Number",
+   "length": 8
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile / WhatsAPP",
+   "length": 11
   }
  ],
  "image_field": "candidate_image",
  "links": [],
- "modified": "2020-12-25 16:26:15.835133",
+ "modified": "2021-03-11 16:16:23.731101",
  "modified_by": "Administrator",
  "module": "jobPRO",
  "name": "Candidate",

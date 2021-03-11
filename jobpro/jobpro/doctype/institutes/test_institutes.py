@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2020, teamPRO and Contributors
+# Copyright (c) 2021, teamPRO and Contributors
 # See license.txt
 from __future__ import unicode_literals
 
 # import frappe
 import unittest
 
-class TestAirport(unittest.TestCase):
+class TestInstitutes(unittest.TestCase):
 	pass

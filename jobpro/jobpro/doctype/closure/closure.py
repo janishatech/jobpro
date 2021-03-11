@@ -38,26 +38,38 @@ class Closure(Document):
                         if self.premedical:
                             if self.visa:
                                 if self.final_medical:
-                                        if self.ecr_status != 'ECR' or self.emigration:
-                                            if self.ticket:
-                                                if self.status == 'Onboarded':
-                                                    self.status = 'Onboarded'
-                                                    self.boarded_date = today()
-                                                else:
-                                                    self.status = 'Onboarding'
-                                                    self.status_updated_on = today()
+                                    if self.ecr_status != 'ECR' or self.emigration:
+                                        if self.ticket:
+                                            if self.status == 'Onboarded':
+                                                self.status = 'Onboarded'
+                                                self.boarded_date = today()
                                             else:
-                                                self.status = 'Ticket'
-                                                self.ticket_date = today()
+                                                self.status = 'Onboarding'
+                                                self.status_updated_on = today()
                                         else:
-                                            self.status = 'Emigration'
-                                            self.emigration_date = today()
+                                            self.status = 'Ticket'
+                                            self.ticket_date = today()
+                                    else:
+                                        self.status = 'Emigration'
+                                        self.emigration_date = today()
                                 else:
                                     self.status = 'Final Medical'
                                     self.final_medical_date = today()
                             else:
-                                self.status = 'Visa'
-                                self.visa_date = today()
+                                if self.is_required:
+                                    if not self.certificate_attestation:
+                                        frappe.errprint("no certificate")
+                                        frappe.db.set_value("Closure",self.name,"status","Certificate Attestation")
+                                        # self.save(ignore_permissions=True)
+                                        frappe.reload_doctype("Closure")
+                                    else:
+                                        frappe.errprint("certificate")
+                                        self.status = 'Visa'
+                                        self.visa_date = today()
+                                        # self.save()
+                                else:
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
                         else:
                             self.status = 'Premedical'
                             self.premedical_date = today()
@@ -100,8 +112,18 @@ class Closure(Document):
                                     self.status = 'Final Medical'
                                     self.final_medical_date = today()
                             else:
-                                self.status = 'Visa'
-                                self.visa_date = today()
+                                if self.is_required:
+                                    if not self.certificate_attestation:
+                                        frappe.errprint("no certificate")
+                                        self.status = 'Certificate Attestation'
+                                        # self.reload()
+                                    else:
+                                        frappe.errprint("certificate")
+                                        self.status = 'Visa'
+                                        self.visa_date = today()
+                                else:
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
                         else:
                             self.status = 'Premedical'
                             self.premedical_date = today()
@@ -136,8 +158,18 @@ class Closure(Document):
                                     self.status = 'Emigration'
                                     self.emigration_date = today()
                             else:
-                                self.status = 'Visa'
-                                self.visa_date = today()
+                                if self.is_required:
+                                    if not self.certificate_attestation:
+                                        frappe.errprint("no certificate")
+                                        self.status = 'Certificate Attestation'
+                                        # self.reload()
+                                    else:
+                                        frappe.errprint("certificate")
+                                        self.status = 'Visa'
+                                        self.visa_date = today()
+                                else:
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
                         else:
                             self.status = 'Premedical'
                             self.premedical_date = today()
@@ -151,7 +183,7 @@ class Closure(Document):
                 self.status = 'PSL'
                 self.status_updated_on = today()
 
-        elif self.territory == 'Oman' or self.territory == 'Bahrain':
+        elif self.territory == 'Oman':
             if self.irf and self.passport and self.photo:
                 if self.so_created:
                     if self.sol:
@@ -172,8 +204,18 @@ class Closure(Document):
                                     self.status = 'Emigration'
                                     self.emigration_date = today()
                             else:
-                                self.status = 'Visa'
-                                self.visa_date = today()
+                                if self.is_required:
+                                    if not self.certificate_attestation:
+                                        frappe.errprint("no certificate")
+                                        frappe.db.set_value("Closure",self.name,"status","Certificate Attestation")
+                                        # self.reload()
+                                    else:
+                                        frappe.errprint("certificate")
+                                        self.status = 'Visa'
+                                        self.visa_date = today()
+                                else:
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
                         else:
                             self.status = 'Premedical'
                             self.premedical_date = today()
@@ -216,8 +258,18 @@ class Closure(Document):
                                     self.status = 'Final Medical'
                                     self.final_medical_date = today()
                             else:
-                                self.status = 'Visa'
-                                self.visa_date = today()
+                                if self.is_required:
+                                    if not self.certificate_attestation:
+                                        frappe.errprint("no certificate")
+                                        self.status = 'Certificate Attestation'
+                                        # self.reload()
+                                    else:
+                                        frappe.errprint("certificate")
+                                        self.status = 'Visa'
+                                        self.visa_date = today()
+                                else:
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
                         else:
                             self.status = 'Premedical'
                             self.premedical_date = today()
@@ -260,8 +312,18 @@ class Closure(Document):
                                 self.status = 'Final Medical'
                                 self.final_medical_date = today()
                         else:
-                            self.status = 'Visa'
-                            self.visa_date = today()
+                                if self.is_required:
+                                    if not self.certificate_attestation:
+                                        frappe.errprint("no certificate")
+                                        self.status = 'Certificate Attestation'
+                                        # self.reload()
+                                    else:
+                                        frappe.errprint("certificate")
+                                        self.status = 'Visa'
+                                        self.visa_date = today()
+                                else:
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
                     else:
                         self.status = 'Offer Letter'
                         self.offer_letter_date = today()
@@ -270,7 +332,55 @@ class Closure(Document):
                     self.status_updated_on = today()
             else:
                 self.status = 'PSL'
-                self.status_updated_on = today()  
+                self.status_updated_on = today()
+
+        elif self.territory == 'Bahrain':
+            if self.irf and self.passport and self.photo:
+                if self.so_created or self.so_confirmed_date:
+                    if self.sol:
+                        if self.premedical:
+                            if self.visa:
+                                if self.ecr_status != 'ECR' or self.emigration:
+                                    if self.ticket:
+                                        if self.status == 'Onboarded':
+                                            self.status = 'Onboarded'
+                                            self.boarded_date = today()
+                                        elif self.status == 'Dropped':
+                                            self.status = 'Dropped'
+                                        else:
+                                            self.status = 'Onboarding'
+                                            self.status_updated_on = today()
+                                    else:
+                                        self.status = 'Ticket'
+                                        self.ticket_date = today()
+                                else:
+                                    self.status = 'Emigration'
+                                    self.emigration_date = today()
+                            else:
+                                if self.is_required:
+                                    if not self.certificate_attestation:
+                                        frappe.errprint("no certificate")
+                                        self.status = 'Certificate Attestation'
+                                        # self.reload()
+                                    else:
+                                        frappe.errprint("certificate")
+                                        self.status = 'Visa'
+                                        self.visa_date = today()
+                                else:
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
+                        else:
+                            self.status = 'Premedical'
+                            self.premedical_date = today()
+                    else:
+                        self.status = 'Offer Letter'
+                        self.offer_letter_date = today()
+                else:
+                    self.status = 'Sales Order'
+                    self.status_updated_on = today()
+            else:
+                self.status = 'PSL'
+                self.status_updated_on = today() 
 
 
 @frappe.whitelist()

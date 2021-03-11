@@ -1,6 +1,18 @@
 import frappe
 import json
 from frappe.utils.csvutils import read_csv_content
+from six.moves import range
+from six import string_types
+import frappe
+import json
+from frappe.utils import (getdate, cint, add_months, date_diff, add_days,
+	nowdate, get_datetime_str, cstr, get_datetime, now_datetime, format_datetime)
+from datetime import datetime
+from calendar import monthrange
+from frappe import _, msgprint
+from frappe.utils import flt
+from frappe.utils import cstr, cint, getdate
+from datetime import date
 
 
 def bulk_update_from_csv(filename):
@@ -220,3 +232,27 @@ def count_task(project):
             #     frappe.db.set_value("Lead",pp[0],"temp_mobile_no",pp[1])
             #     print(pp[0])
                 # frappe.db.commit()
+
+@frappe.whitelist()
+def leave_allocation():
+    employee = frappe.get_all("Employee" ,{"status":"Active","employment_type":"Full-time"}, ['name','date_of_joining'])
+    for emp in employee:
+        now_date = frappe.utils.datetime.datetime.now().date()
+        age = now_date.year - emp.date_of_joining.year - ((now_date.month, now_date.day) < (emp.date_of_joining.month, emp.date_of_joining.day))
+        if age:
+            start_date = date(now_date.year, 1, 1)
+            end_date = date(now_date.year, 12, 31)
+            months = now_date.month
+            leave_allocation = frappe.get_all("Leave Allocation",{"employee":emp.name,"from_date":start_date,"to_date":end_date},["name"])
+            if not leave_allocation:
+                leave_balance = 13 - int(months)
+                allocation = frappe.new_doc("Leave Allocation")
+                allocation.update({
+                    "employee":emp.name,
+                    "leave_type":"Casual Leave",
+                    "from_date":now_date,
+                    "to_date":end_date,
+                    "new_leaves_allocated":leave_balance
+                }).save(ignore_permissions=True)
+                allocation.submit()
+                frappe.db.commit()

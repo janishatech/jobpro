@@ -18,10 +18,10 @@ frappe.ui.form.on('Candidate', {
 			frm.set_df_property("task", "reqd", 1);
 			frappe.db.get_value('Territory',frm.doc.territory, 'parent_territory', (r) => {
 				if (r && r.parent_territory == 'India') {
-					frm.set_df_property("passport_no", "reqd", 0);
+					frm.set_df_property("passport_number", "reqd", 0);
 				}
 				else{
-					frm.set_df_property("passport_no", "reqd", 1);
+					frm.set_df_property("passport_number", "reqd", 1);
 				}
 			});
 		
@@ -31,10 +31,10 @@ frappe.ui.form.on('Candidate', {
 			frm.set_df_property("project", "reqd", 0);
 			frm.set_df_property("territory", "reqd", 0);
 			frm.set_df_property("task", "reqd", 0);
-			frm.set_df_property("passport_no", "reqd", 0);
+			frm.set_df_property("passport_number", "reqd", 0);
 		}
-	frm.set_value('mobile',frm.doc.mobile_number)
-	frm.set_value('passport_no',frm.doc.passport_number)
+	// frm.set_value('mobile',frm.doc.mobile_number)
+	// frm.set_value('passport_number',frm.doc.passport_number)
 	var highest_qualification = 0;
 	var latest_work_experience = 0;
 	var currently_working = 0;
@@ -72,34 +72,27 @@ frappe.ui.form.on('Candidate', {
 		}
 		latest_work_experience += d.latest_work_experience;
 	})
-	var regex = /[^0-9]/g;
-	if (regex.test(frm.doc.mobile_number) === true){
-		frappe.msgprint(__("Mobile No.: Only Numbers are allowed."));
-		frappe.validated = false;
-	}
 	var len = frm.doc.mobile_number
 	if(frm.doc.mobile_number){
-	if(len.length < 9){
-		frappe.throw("Mobile Number must be 10 digits")
-		frappe.validated = false;
-	}
-	if(len.length > 10){
+		var regex = /[^0-9]/g;
+		if (regex.test(frm.doc.mobile_number) === true){
+			frappe.msgprint(__("Mobile No.: Only Numbers are allowed."));
+			frappe.validated = false;
+		}
+	if(len.length < 10 || len.length > 10){
 		frappe.throw("Mobile Number must be 10 digits")
 		frappe.validated = false;
 	}
 }
-	var regex = /[^0-9A-Za-z]/g;
-	if (regex.test(frm.doc.passport_no) === true){
+	
+	if (frm.doc.passport_number){
+		var regex = /[^0-9A-Za-z]/g;
+	if (regex.test(frm.doc.passport_number) === true){
 		frappe.msgprint(__("Passport No.: Only letters and numbers are allowed."));
 		frappe.validated = false;
 	}
-	if (frm.doc.passport_number){
 		var len = frm.doc.passport_number
-		if(len.length < 7){
-			frappe.throw("Passport Number must be 8 digits")
-			frappe.validated = false;
-		}
-		if(len.length > 9){
+		if(len.length > 8 || len.length < 8){
 			frappe.throw("Passport Number must be 8 digits")
 			frappe.validated = false;
 		}
@@ -151,20 +144,7 @@ frappe.ui.form.on('Candidate', {
 			frappe.throw("Expected DOJ Can't be Past Date")
 		}
 	},
-	mobile_number: function(frm){
-		var regex = /[^0-9]/g;
-		if (regex.test(frm.doc.mobile_number) === true){
-			frappe.msgprint(__("Mobile No.: Only Numbers are allowed."));
-			frappe.validated = false;
-		}
-	},
-	passport_number:function(frm){
-		var regex = /[^0-9A-Za-z]/g;
-		if (regex.test(frm.doc.passport_number) === true){
-			frappe.msgprint(__("Passport No.: Only letters and numbers are allowed."));
-			frappe.validated = false;
-		}
-	},
+	
 	alternate_contact: function(frm){
 		var regex = /[^0-9]/g;
 		if (regex.test(frm.doc.alternate_contact) === true){

@@ -98,13 +98,13 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"jobpro.tasks.all"
 # 	],
-# 	"daily": [
-# 		"jobpro.tasks.daily"
-# 	],
+	"daily": [
+		"jobpro.custom.leave_allocation"
+	],
 # 	"hourly": [
 # 		"jobpro.tasks.hourly"
 # 	],
@@ -114,7 +114,7 @@ doc_events = {
 # 	"monthly": [
 # 		"jobpro.tasks.monthly"
 # 	]
-# }
+}
 
 # Testing
 # -------

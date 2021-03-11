@@ -3,7 +3,7 @@
   {
    "hidden": 0,
    "label": "Recruitment",
-   "links": "[\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"Candidate\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"route\": \"#List/Candidate/List\",\n                    \"label\": \"Candidate\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"Closure\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"label\": \"Closure\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"SAMS\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"route\": \"#List/SAMS/List\",\n                    \"label\": \"SAMS\"\n\t\t\t\t}\n]"
+   "links": "[\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"Candidate\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"route\": \"#List/Candidate/List\",\n                    \"label\": \"Candidate\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"Closure\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"label\": \"Closure\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"SAMS\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"route\": \"#List/SAMS/List\",\n                    \"label\": \"SAMS\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"doctype\",\n\t\t\t\t\t\"name\": \"Institutes\",\n\t\t\t\t\t\"onboard\": 1,\n                    \"label\": \"Institutes\"\n\t\t\t\t}\n]"
   }
  ],
  "category": "Modules",
@@ -18,7 +18,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Recruitment",
- "modified": "2020-12-04 11:50:37.916651",
+ "modified": "2021-02-26 10:04:21.839427",
  "modified_by": "Administrator",
  "module": "jobPRO",
  "name": "Recruitment",

@@ -43,6 +43,7 @@ def check_territory(territory):
 @frappe.whitelist()
 def create_closure(doc,method):
     if doc.pending_for == 'Proposed PSL':
+        
         closure_id = frappe.db.exists("Closure", {"candidate": doc.name})
         if closure_id:
             closure = frappe.get_doc("Closure", closure_id)
@@ -62,6 +63,7 @@ def create_closure(doc,method):
             "project": doc.project,
             "candidate_owner":doc.candidate_created_by,
             "sa_owner":doc.sa_agent,
+            "name_sa_owner":doc.sa_agent_name,
             "passport_no": doc.passport_no,
             "date_of_birth":doc.dob,
             "ecr_status":doc.ecr_status,
@@ -69,6 +71,7 @@ def create_closure(doc,method):
             "expiry_date":doc.expiry_date,
             "expected_doj":doc.expected_doj,
             "place_of_issue":doc.place_of_issue,
+            "selection_date":doc.interview_date,
             })
         if doc.irf:
             closure.update({"irf": doc.irf})
