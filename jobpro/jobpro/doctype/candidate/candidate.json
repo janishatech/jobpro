@@ -59,6 +59,7 @@
   "temp_territory",
   "pincode",
   "gender",
+  "institutes",
   "is_married",
   "passport_details_section",
   "applied",
@@ -517,7 +518,7 @@
    "depends_on": "eval:doc.pending_for == \"Proposed PSL\"",
    "fieldname": "interview_date",
    "fieldtype": "Date",
-   "label": "Interview Date"
+   "label": "Selection Date"
   },
   {
    "depends_on": "eval:doc.pending_for == 'Proposed PSL'",
@@ -816,12 +817,19 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Mobile / WhatsAPP",
-   "length": 11
+   "length": 11,
+   "options": "Phone"
+  },
+  {
+   "fieldname": "institutes",
+   "fieldtype": "Link",
+   "label": "Institutes",
+   "options": "Institutes"
   }
  ],
  "image_field": "candidate_image",
  "links": [],
- "modified": "2021-03-11 16:16:23.731101",
+ "modified": "2021-03-17 15:24:58.589086",
  "modified_by": "Administrator",
  "module": "jobPRO",
  "name": "Candidate",

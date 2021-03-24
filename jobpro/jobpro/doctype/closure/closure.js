@@ -96,6 +96,8 @@ frappe.ui.form.on('Closure', {
 										closure: cur_frm.doc.name,
 										project: cur_frm.doc.project,
 										customer: cur_frm.doc.customer,
+										account_manager: cur_frm.doc.account_manager,
+										delivery_manager:cur_frm.doc.candidate_owner,
 										task: cur_frm.doc.task,
 										candidate_name: cur_frm.doc.given_name,
 										contact: cur_frm.doc.mobile,

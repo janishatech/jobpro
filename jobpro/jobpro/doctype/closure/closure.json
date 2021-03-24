@@ -230,7 +230,7 @@
    "fieldname": "place_of_issue",
    "fieldtype": "Link",
    "label": "Place of Issue",
-   "options": "District"
+   "options": "Districts"
   },
   {
    "depends_on": "eval:doc.applied == 0",
@@ -641,7 +641,7 @@
    "fieldname": "hospital_location",
    "fieldtype": "Link",
    "label": "Hospital Location",
-   "options": "District"
+   "options": "Districts"
   },
   {
    "fieldname": "folio_number",
@@ -716,7 +716,7 @@
    "fieldname": "final_medical_hospital_location",
    "fieldtype": "Link",
    "label": "Hospital / Center Location",
-   "options": "District"
+   "options": "Districts"
   },
   {
    "fieldname": "arn_number",
@@ -805,7 +805,7 @@
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2021-02-26 16:09:38.004359",
+ "modified": "2021-03-12 15:58:07.071235",
  "modified_by": "Administrator",
  "module": "jobPRO",
  "name": "Closure",

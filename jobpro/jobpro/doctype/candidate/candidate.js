@@ -15,6 +15,8 @@ frappe.ui.form.on('Candidate', {
 			frm.set_df_property("customer", "reqd", 1);
 			frm.set_df_property("project", "reqd", 1);
 			frm.set_df_property("territory", "reqd", 1);
+			frm.set_df_property("interview_date", "reqd", 1);
+			frm.set_df_property("expected_doj", "reqd", 1);
 			frm.set_df_property("task", "reqd", 1);
 			frappe.db.get_value('Territory',frm.doc.territory, 'parent_territory', (r) => {
 				if (r && r.parent_territory == 'India') {
@@ -32,6 +34,8 @@ frappe.ui.form.on('Candidate', {
 			frm.set_df_property("territory", "reqd", 0);
 			frm.set_df_property("task", "reqd", 0);
 			frm.set_df_property("passport_number", "reqd", 0);
+			frm.set_df_property("expected_doj", "reqd", 0);
+			frm.set_df_property("interview_date", "reqd", 0);
 		}
 	// frm.set_value('mobile',frm.doc.mobile_number)
 	// frm.set_value('passport_number',frm.doc.passport_number)
@@ -46,7 +50,7 @@ frappe.ui.form.on('Candidate', {
 		frappe.validated = false;
 	}
 
-	$.each(frm.doc.table_30,function(i,d){
+	$.each(frm.doc.experience_details,function(i,d){
 		if(d.from_date > d.to_date){
 			frappe.msgprint(__("From Date cannot be Higher than To Date"));
 			frappe.validated = false;
@@ -58,7 +62,7 @@ frappe.ui.form.on('Candidate', {
 		frappe.validated = false;
 	}
 
-	$.each(frm.doc.table_30,function(i,d){
+	$.each(frm.doc.experience_details,function(i,d){
 		currently_working += d.currently_working;
 	})
 	if(currently_working > 1){
@@ -71,6 +75,10 @@ frappe.ui.form.on('Candidate', {
 			frappe.validated = false;
 		}
 		latest_work_experience += d.latest_work_experience;
+		if(d.doi > d.doe){
+			frappe.msgprint(__("DOE cannot be before DOI"));
+			frappe.validated = false;
+		}
 	})
 	var len = frm.doc.mobile_number
 	if(frm.doc.mobile_number){

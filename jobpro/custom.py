@@ -6,7 +6,7 @@ from six import string_types
 import frappe
 import json
 from frappe.utils import (getdate, cint, add_months, date_diff, add_days,
-	nowdate, get_datetime_str, cstr, get_datetime, now_datetime, format_datetime)
+    nowdate, get_datetime_str, cstr, get_datetime, now_datetime, format_datetime)
 from datetime import datetime
 from calendar import monthrange
 from frappe import _, msgprint
@@ -40,6 +40,8 @@ def bulk_update_from_csv(filename):
                 # })
                 # i.save(ignore_permissions=True)
                 # frappe.db.commit()
+
+
 def update_timesheet():
     t_list = frappe.get_all("Timesheet",{"status":"Submitted"})
     for t in t_list:
@@ -256,3 +258,133 @@ def leave_allocation():
                 }).save(ignore_permissions=True)
                 allocation.submit()
                 frappe.db.commit()
+
+@frappe.whitelist()
+def auto_mail_to_sams(project,territory):
+    task =frappe.get_all("Task",filters = {"project":project}, fields = ["*"])
+    for t in task:
+        sams =frappe.db.sql("""select email_address,person_name from`tabSAMS` where NOT sa_status= "Do Not Contact" """,as_dict=True)
+        for s in sams:
+            frappe.errprint(s.person_name)
+            vacancy =t.vac * t.prop
+            frappe.sendmail(
+                recipients=["sarumathy.d@groupteampro.com"],
+                subject='Regarding Vacancy' ,
+                message="""<p>Dear %s,</p>
+                <p>Greetings From TEAMPRO !!! <br>
+                    We are always happy to be associated with you, and appreciate your sincere efforts to be support us in recruitment.
+                    We have a manpower requirement for once of our reputed client in %s ; The details for project is as below:
+                    <table class='table table-bordered'>
+                    <tr>
+                    <th>Position</th>  <th>Vacancy</th>  <th> Valid till</th>
+                    </tr>
+                    <tr>
+                     <td> %s </td> <td> %s </td> <td> %s </td>
+                    </tr>
+                     </table>
+                     <br>
+                     <table class='table table-bordered'>
+                     <tr>
+                    <th> Job Requirement</th> 
+                    </tr>
+                    <tr>
+                    <th> Qualification Type </th>   <th> Temp Qualification </th> <th>Minimum Experience</th>  <th>Total Experience</th>
+                    </tr>
+                    <tr>
+                    <td> %s </td>   <td> %s </td> <td> %s </td> <td> %s </td>
+                    </tr>
+                    <tr>
+                    <th> Salary Type </th>  <th>Specialization</th> <th> Maximum Experience </th> <th>Currency</th>
+                    </tr>
+                    <tr>
+                    <td> %s </td>  <td>%s</td> <td> %s </td> <td> %s </td>
+                    </tr>
+                    <tr>
+                    <th> Category </th>  <th>Gulf Experience</th> <th> Amount </th> <th>Driving Licence (If any)</th>
+                    </tr>
+                    <tr>
+                    <td> %s </td>  <td>%s</td> <td> %s </td> <td> %s </td>
+                    </tr>
+                     </table>
+                     <br>
+                     <table class='table table-bordered'>
+                     <tr>
+                    <th>Job Description </th> 
+                    </tr>
+                    <tr>
+                    <td> %s </td>
+                    </tr>
+                     </table>
+                     <br>
+                     <table class='table table-bordered'>
+                    <tr>
+                    <th>Allowance and Benefits  </th> 
+                    </tr>
+                    <tr>
+                    <th> Working Days/HRS </th>  <th> Food </th> <th>Visa Type </th> <th>Transportation </th> 
+                    </tr>
+                    <tr>
+                    <td> %s </td>  <td>%s</td> <td> %s </td> <td> %s </td>
+                    </tr>
+                     <tr>
+                    <th> Accommodation </th>  <th> Nationality </th> <th>  Contract Period Year</th> <th> Contract Period  Month</th>
+                    </tr>
+                    <tr>
+                    <td> %s </td>  <td>%s</td> <td> %s </td> <td> %s </td>
+                    </tr>
+                    <tr>
+                    <th>  Over Time </th>  <th> Joining Ticket </th> <th> Leave </th> <th> Any Other Allowance</th>
+                    </tr>
+                    <tr>
+                    <td> %s </td>  <td>%s</td> <td> %s </td> <td> %s </td>
+                    </tr>
+                    </table>
+                    <br>
+                    Please contact us at +91 73050 56202 / +91 73050 56203 / +91 73050 56201 / +91 7550224400
+                    or write to us at cv@groupteampro.com / hr@groupteampro.com
+                    </p> 
+                    <style>
+                    th {
+                        background-color:989898
+                    }
+                    </style>
+                    """ % (s.person_name,territory,t.subject,vacancy,t.exp_end_date ,t.qualification_type,t.temp_qualification,
+                    t.minimum_experience,t.total_experience, t.salary_type,t.specialization,t.maximum_experience,t.currency,t.category,t.gulf_experience,
+                    t.amount ,t.driving_licence ,t.description,t.working_days,t.food,t.visa_type,t.transportation,t.accommodation,t.nationality,
+                    t.contract_period_year,t.contract_period__month,t.over_time,t.joining_ticket,t.leave,t.any_other_allowance,))
+
+@frappe.whitelist()
+def update_sams():
+    sams = frappe.get_all("SAMS",{"sa_is_an_organization":1},["name","private_limited_company","proprietary_company"])
+    for sm in sams:
+        print(sm.name)
+        if sm.private_limited_company:
+            sam = frappe.get_doc("SAMS",sm.name)
+            print(sam.name)
+            print(sam.organization_name)
+            sam.update({
+                "company":"Pvt.Ltd.Company",
+                "type":"Agent"
+            }).save(ignore_permissions=True)
+            frappe.db.commit()
+        if sm.proprietary_company:
+            sam = frappe.get_doc("SAMS",sm.name)
+            print(sam.name)
+            print(sam.organization_name)
+            sam.update({
+                "company":"Proprietary Company",
+                "type":"Agent"
+            }).save(ignore_permissions=True)
+            frappe.db.commit()
+
+@frappe.whitelist()
+def late_entry():
+    employee = frappe.get_all("Employee",{"status":"Active"},["name"])
+    import calendar
+    now_date = frappe.utils.datetime.datetime.now().date()
+    month = calendar.monthrange(now_date.year, now_date.month)
+    start_date = date(now_date.year, now_date.month, 1)
+    end_date = date(now_date.year, now_date.month, month[1])
+    for emp in employee:
+        attendance = frappe.db.sql("""select name,employee,employee_name,shift,late_entry from `tabAttendance` where late_entry = 1 and employee = %s and attendance_date between %s and %s""",(emp.name,start_date,end_date),as_dict = 1)
+        count = len(attendance)

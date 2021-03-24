@@ -33,261 +33,61 @@ class Closure(Document):
                     
         elif self.territory == 'Qatar':
             if self.irf and self.passport and self.photo:
-                if self.so_created or self.so_confirmed_date:
-                    if self.sol:
-                        if self.premedical:
-                            if self.visa:
-                                if self.final_medical:
-                                    if self.ecr_status != 'ECR' or self.emigration:
-                                        if self.ticket:
-                                            if self.status == 'Onboarded':
-                                                self.status = 'Onboarded'
-                                                self.boarded_date = today()
-                                            else:
-                                                self.status = 'Onboarding'
-                                                self.status_updated_on = today()
+                # if self.so_created or self.so_confirmed_date:
+                if self.sol:
+                    if self.premedical:
+                        if self.visa:
+                            if self.final_medical:
+                                if self.ecr_status != 'ECR' or self.emigration:
+                                    if self.ticket:
+                                        if self.status == 'Onboarded':
+                                            self.status = 'Onboarded'
+                                            self.boarded_date = today()
                                         else:
-                                            self.status = 'Ticket'
-                                            self.ticket_date = today()
+                                            self.status = 'Onboarding'
+                                            self.status_updated_on = today()
                                     else:
-                                        self.status = 'Emigration'
-                                        self.emigration_date = today()
+                                        self.status = 'Ticket'
+                                        self.ticket_date = today()
                                 else:
-                                    self.status = 'Final Medical'
-                                    self.final_medical_date = today()
+                                    self.status = 'Emigration'
+                                    self.emigration_date = today()
                             else:
-                                if self.is_required:
-                                    if not self.certificate_attestation:
-                                        frappe.errprint("no certificate")
-                                        frappe.db.set_value("Closure",self.name,"status","Certificate Attestation")
-                                        # self.save(ignore_permissions=True)
-                                        frappe.reload_doctype("Closure")
-                                    else:
-                                        frappe.errprint("certificate")
-                                        self.status = 'Visa'
-                                        self.visa_date = today()
-                                        # self.save()
+                                self.status = 'Final Medical'
+                                self.final_medical_date = today()
+                        else:
+                            if self.is_required:
+                                if not self.certificate_attestation:
+                                    frappe.errprint("no certificate")
+                                    frappe.db.set_value("Closure",self.name,"status","Certificate Attestation")
+                                    # self.save(ignore_permissions=True)
+                                    frappe.reload_doctype("Closure")
                                 else:
+                                    frappe.errprint("certificate")
                                     self.status = 'Visa'
                                     self.visa_date = today()
-                        else:
-                            self.status = 'Premedical'
-                            self.premedical_date = today()
+                                    # self.save()
+                            else:
+                                self.status = 'Visa'
+                                self.visa_date = today()
                     else:
-                        self.status = 'Offer Letter'
-                        self.offer_letter_date = today()
+                        self.status = 'Premedical'
+                        self.premedical_date = today()
                 else:
-                    self.status = 'Sales Order'
-                    self.status_updated_on = today()
+                    self.status = 'Offer Letter'
+                    self.offer_letter_date = today()
+                # else:
+                #     self.status = 'Sales Order'
+                #     self.status_updated_on = today()
             else:
                 self.status = 'PSL'
                 self.status_updated_on = today()
 
         elif self.territory == 'UAE' and self.visa_state == 'Abu Dhabi':
             if self.irf and self.passport and self.photo:
-                if self.so_created or self.so_confirmed_date:
-                    if self.sol:
-                        if self.premedical:
-                            if self.visa:
-                                if self.final_medical:
-                                    if self.visa_stamping:
-                                        if self.ecr_status != 'ECR' or self.emigration:
-                                            if self.ticket:
-                                                if self.status == 'Onboarded':
-                                                    self.status = 'Onboarded'
-                                                    self.boarded_date = today()
-                                                else:
-                                                    self.status = 'Onboarding'
-                                                    self.status_updated_on = today()
-                                            else:
-                                                self.status = 'Ticket'
-                                                self.ticket_date = today()
-                                        else:
-                                            self.status = 'Emigration'
-                                            self.emigration_date = today()
-                                    else:
-                                        self.status = 'Visa Stamping'
-                                        self.stamped_visa_date = today()
-                                else:
-                                    self.status = 'Final Medical'
-                                    self.final_medical_date = today()
-                            else:
-                                if self.is_required:
-                                    if not self.certificate_attestation:
-                                        frappe.errprint("no certificate")
-                                        self.status = 'Certificate Attestation'
-                                        # self.reload()
-                                    else:
-                                        frappe.errprint("certificate")
-                                        self.status = 'Visa'
-                                        self.visa_date = today()
-                                else:
-                                    self.status = 'Visa'
-                                    self.visa_date = today()
-                        else:
-                            self.status = 'Premedical'
-                            self.premedical_date = today()
-                    else:
-                        self.status = 'Offer Letter'
-                        self.offer_letter_date = today()
-                else:
-                    self.status = 'Sales Order'
-                    self.status_updated_on = today()
-            else:
-                self.status = 'PSL'
-                self.status_updated_on = today()
-        
-        elif self.territory == 'UAE' and self.visa_state == 'Dubai':
-            if self.irf and self.passport and self.photo:
-                if self.so_created or self.so_confirmed_date:
-                    if self.sol:
-                        if self.premedical:
-                            if self.visa:
-                                if self.ecr_status != 'ECR' or self.emigration:
-                                    if self.ticket:
-                                        if self.status == 'Onboarded':
-                                            self.status = 'Onboarded'
-                                            self.boarded_date = today()
-                                        else:
-                                            self.status = 'Onboarding'
-                                            self.status_updated_on = today()
-                                    else:
-                                        self.status = 'Ticket'
-                                        self.ticket_date = today()
-                                else:
-                                    self.status = 'Emigration'
-                                    self.emigration_date = today()
-                            else:
-                                if self.is_required:
-                                    if not self.certificate_attestation:
-                                        frappe.errprint("no certificate")
-                                        self.status = 'Certificate Attestation'
-                                        # self.reload()
-                                    else:
-                                        frappe.errprint("certificate")
-                                        self.status = 'Visa'
-                                        self.visa_date = today()
-                                else:
-                                    self.status = 'Visa'
-                                    self.visa_date = today()
-                        else:
-                            self.status = 'Premedical'
-                            self.premedical_date = today()
-                    else:
-                        self.status = 'Offer Letter'
-                        self.offer_letter_date = today()
-                else:
-                    self.status = 'Sales Order'
-                    self.status_updated_on = today()
-            else:
-                self.status = 'PSL'
-                self.status_updated_on = today()
-
-        elif self.territory == 'Oman':
-            if self.irf and self.passport and self.photo:
-                if self.so_created:
-                    if self.sol:
-                        if self.premedical:
-                            if self.visa:
-                                if self.ecr_status != 'ECR' or self.emigration:
-                                    if self.ticket:
-                                        if self.status == 'Onboarded':
-                                            self.status = 'Onboarded'
-                                            self.boarded_date = today()
-                                        else:
-                                            self.status = 'Onboarding'
-                                            self.status_updated_on = today()
-                                    else:
-                                        self.status = 'Ticket'
-                                        self.ticket_date = today()
-                                else:
-                                    self.status = 'Emigration'
-                                    self.emigration_date = today()
-                            else:
-                                if self.is_required:
-                                    if not self.certificate_attestation:
-                                        frappe.errprint("no certificate")
-                                        frappe.db.set_value("Closure",self.name,"status","Certificate Attestation")
-                                        # self.reload()
-                                    else:
-                                        frappe.errprint("certificate")
-                                        self.status = 'Visa'
-                                        self.visa_date = today()
-                                else:
-                                    self.status = 'Visa'
-                                    self.visa_date = today()
-                        else:
-                            self.status = 'Premedical'
-                            self.premedical_date = today()
-                    else:
-                        self.status = 'Offer Letter'
-                        self.offer_letter_date = today()
-                else:
-                    self.status = 'Sales Order'
-                    self.status_updated_on = today()
-            else:
-                self.status = 'PSL'
-                self.status_updated_on = today()      
-
-        elif self.territory == 'Kuwait':
-            if self.irf and self.passport and self.photo:
-                if self.so_created or self.so_confirmed_date:
-                    if self.sol:
-                        if self.premedical:
-                            if self.visa:
-                                if self.final_medical:
-                                    if self.visa_stamping:
-                                        if self.ecr_status != 'ECR' or self.emigration:
-                                            if self.ticket:
-                                                if self.status == 'Onboarded':
-                                                    self.status = 'Onboarded'
-                                                    self.boarded_date = today()
-                                                else:
-                                                    self.status = 'Onboarding'
-                                                    self.status_updated_on = today()
-                                            else:
-                                                self.status = 'Ticket'
-                                                self.ticket_date = today()
-                                        else:
-                                            self.status = 'Emigration'
-                                            self.emigration_date = today()
-                                    else:
-                                        self.status = 'Visa Stamping'
-                                        self.stamped_visa_date = today()
-                                else:
-                                    self.status = 'Final Medical'
-                                    self.final_medical_date = today()
-                            else:
-                                if self.is_required:
-                                    if not self.certificate_attestation:
-                                        frappe.errprint("no certificate")
-                                        self.status = 'Certificate Attestation'
-                                        # self.reload()
-                                    else:
-                                        frappe.errprint("certificate")
-                                        self.status = 'Visa'
-                                        self.visa_date = today()
-                                else:
-                                    self.status = 'Visa'
-                                    self.visa_date = today()
-                        else:
-                            self.status = 'Premedical'
-                            self.premedical_date = today()
-                    else:
-                        self.status = 'Offer Letter'
-                        self.offer_letter_date = today()
-                else:
-                    self.status = 'Sales Order'
-                    self.status_updated_on = today()
-            else:
-                self.status = 'PSL'
-                self.status_updated_on = today()  
-
-
-        elif self.territory in ['Dammam','Jeddah','Riyadh'] or self.territory == 'KSA':
-            if self.irf and self.passport and self.photo:
-                if self.so_created or self.so_confirmed_date:
-                    if self.sol:
+                # if self.so_created or self.so_confirmed_date:
+                if self.sol:
+                    if self.premedical:
                         if self.visa:
                             if self.final_medical:
                                 if self.visa_stamping:
@@ -312,41 +112,190 @@ class Closure(Document):
                                 self.status = 'Final Medical'
                                 self.final_medical_date = today()
                         else:
-                                if self.is_required:
-                                    if not self.certificate_attestation:
-                                        frappe.errprint("no certificate")
-                                        self.status = 'Certificate Attestation'
-                                        # self.reload()
-                                    else:
-                                        frappe.errprint("certificate")
-                                        self.status = 'Visa'
-                                        self.visa_date = today()
+                            if self.is_required:
+                                if not self.certificate_attestation:
+                                    frappe.errprint("no certificate")
+                                    self.status = 'Certificate Attestation'
+                                    # self.reload()
                                 else:
+                                    frappe.errprint("certificate")
                                     self.status = 'Visa'
                                     self.visa_date = today()
+                            else:
+                                self.status = 'Visa'
+                                self.visa_date = today()
                     else:
-                        self.status = 'Offer Letter'
-                        self.offer_letter_date = today()
+                        self.status = 'Premedical'
+                        self.premedical_date = today()
                 else:
-                    self.status = 'Sales Order'
-                    self.status_updated_on = today()
+                    self.status = 'Offer Letter'
+                    self.offer_letter_date = today()
+                # else:
+                #     self.status = 'Sales Order'
+                #     self.status_updated_on = today()
+            else:
+                self.status = 'PSL'
+                self.status_updated_on = today()
+        
+        elif self.territory == 'UAE' and self.visa_state == 'Dubai':
+            if self.irf and self.passport and self.photo:
+                # if self.so_created or self.so_confirmed_date:
+                if self.sol:
+                    if self.premedical:
+                        if self.visa:
+                            if self.ecr_status != 'ECR' or self.emigration:
+                                if self.ticket:
+                                    if self.status == 'Onboarded':
+                                        self.status = 'Onboarded'
+                                        self.boarded_date = today()
+                                    else:
+                                        self.status = 'Onboarding'
+                                        self.status_updated_on = today()
+                                else:
+                                    self.status = 'Ticket'
+                                    self.ticket_date = today()
+                            else:
+                                self.status = 'Emigration'
+                                self.emigration_date = today()
+                        else:
+                            if self.is_required:
+                                if not self.certificate_attestation:
+                                    frappe.errprint("no certificate")
+                                    self.status = 'Certificate Attestation'
+                                    # self.reload()
+                                else:
+                                    frappe.errprint("certificate")
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
+                            else:
+                                self.status = 'Visa'
+                                self.visa_date = today()
+                    else:
+                        self.status = 'Premedical'
+                        self.premedical_date = today()
+                else:
+                    self.status = 'Offer Letter'
+                    self.offer_letter_date = today()
+                # else:
+                #     self.status = 'Sales Order'
+                #     self.status_updated_on = today()
             else:
                 self.status = 'PSL'
                 self.status_updated_on = today()
 
-        elif self.territory == 'Bahrain':
+        elif self.territory == 'Oman':
             if self.irf and self.passport and self.photo:
-                if self.so_created or self.so_confirmed_date:
-                    if self.sol:
-                        if self.premedical:
-                            if self.visa:
+                # if self.so_created:
+                if self.sol:
+                    if self.premedical:
+                        if self.visa:
+                            if self.ecr_status != 'ECR' or self.emigration:
+                                if self.ticket:
+                                    if self.status == 'Onboarded':
+                                        self.status = 'Onboarded'
+                                        self.boarded_date = today()
+                                    else:
+                                        self.status = 'Onboarding'
+                                        self.status_updated_on = today()
+                                else:
+                                    self.status = 'Ticket'
+                                    self.ticket_date = today()
+                            else:
+                                self.status = 'Emigration'
+                                self.emigration_date = today()
+                        else:
+                            if self.is_required:
+                                if not self.certificate_attestation:
+                                    frappe.errprint("no certificate")
+                                    frappe.db.set_value("Closure",self.name,"status","Certificate Attestation")
+                                    # self.reload()
+                                else:
+                                    frappe.errprint("certificate")
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
+                            else:
+                                self.status = 'Visa'
+                                self.visa_date = today()
+                    else:
+                        self.status = 'Premedical'
+                        self.premedical_date = today()
+                else:
+                    self.status = 'Offer Letter'
+                    self.offer_letter_date = today()
+                # else:
+                #     self.status = 'Sales Order'
+                #     self.status_updated_on = today()
+            else:
+                self.status = 'PSL'
+                self.status_updated_on = today()      
+
+        elif self.territory == 'Kuwait':
+            if self.irf and self.passport and self.photo:
+                # if self.so_created or self.so_confirmed_date:
+                if self.sol:
+                    if self.premedical:
+                        if self.visa:
+                            if self.final_medical:
+                                if self.visa_stamping:
+                                    if self.ecr_status != 'ECR' or self.emigration:
+                                        if self.ticket:
+                                            if self.status == 'Onboarded':
+                                                self.status = 'Onboarded'
+                                                self.boarded_date = today()
+                                            else:
+                                                self.status = 'Onboarding'
+                                                self.status_updated_on = today()
+                                        else:
+                                            self.status = 'Ticket'
+                                            self.ticket_date = today()
+                                    else:
+                                        self.status = 'Emigration'
+                                        self.emigration_date = today()
+                                else:
+                                    self.status = 'Visa Stamping'
+                                    self.stamped_visa_date = today()
+                            else:
+                                self.status = 'Final Medical'
+                                self.final_medical_date = today()
+                        else:
+                            if self.is_required:
+                                if not self.certificate_attestation:
+                                    frappe.errprint("no certificate")
+                                    self.status = 'Certificate Attestation'
+                                    # self.reload()
+                                else:
+                                    frappe.errprint("certificate")
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
+                            else:
+                                self.status = 'Visa'
+                                self.visa_date = today()
+                    else:
+                        self.status = 'Premedical'
+                        self.premedical_date = today()
+                else:
+                    self.status = 'Offer Letter'
+                    self.offer_letter_date = today()
+                # else:
+                #     self.status = 'Sales Order'
+                #     self.status_updated_on = today()
+            else:
+                self.status = 'PSL'
+                self.status_updated_on = today()  
+
+
+        elif self.territory in ['Dammam','Jeddah','Riyadh'] or self.territory == 'KSA':
+            if self.irf and self.passport and self.photo:
+                # if self.so_created or self.so_confirmed_date:
+                if self.sol:
+                    if self.visa:
+                        if self.final_medical:
+                            if self.visa_stamping:
                                 if self.ecr_status != 'ECR' or self.emigration:
                                     if self.ticket:
                                         if self.status == 'Onboarded':
                                             self.status = 'Onboarded'
                                             self.boarded_date = today()
-                                        elif self.status == 'Dropped':
-                                            self.status = 'Dropped'
                                         else:
                                             self.status = 'Onboarding'
                                             self.status_updated_on = today()
@@ -357,34 +306,85 @@ class Closure(Document):
                                     self.status = 'Emigration'
                                     self.emigration_date = today()
                             else:
-                                if self.is_required:
-                                    if not self.certificate_attestation:
-                                        frappe.errprint("no certificate")
-                                        self.status = 'Certificate Attestation'
-                                        # self.reload()
-                                    else:
-                                        frappe.errprint("certificate")
-                                        self.status = 'Visa'
-                                        self.visa_date = today()
+                                self.status = 'Visa Stamping'
+                                self.stamped_visa_date = today()
+                        else:
+                            self.status = 'Final Medical'
+                            self.final_medical_date = today()
+                    else:
+                            if self.is_required:
+                                if not self.certificate_attestation:
+                                    frappe.errprint("no certificate")
+                                    self.status = 'Certificate Attestation'
+                                    # self.reload()
                                 else:
+                                    frappe.errprint("certificate")
                                     self.status = 'Visa'
                                     self.visa_date = today()
-                        else:
-                            self.status = 'Premedical'
-                            self.premedical_date = today()
-                    else:
-                        self.status = 'Offer Letter'
-                        self.offer_letter_date = today()
+                            else:
+                                self.status = 'Visa'
+                                self.visa_date = today()
                 else:
-                    self.status = 'Sales Order'
-                    self.status_updated_on = today()
+                    self.status = 'Offer Letter'
+                    self.offer_letter_date = today()
+                # else:
+                #     self.status = 'Sales Order'
+                #     self.status_updated_on = today()
+            else:
+                self.status = 'PSL'
+                self.status_updated_on = today()
+
+        elif self.territory == 'Bahrain':
+            # if self.irf and self.passport and self.photo:
+            if self.so_created or self.so_confirmed_date:
+                if self.sol:
+                    if self.premedical:
+                        if self.visa:
+                            if self.ecr_status != 'ECR' or self.emigration:
+                                if self.ticket:
+                                    if self.status == 'Onboarded':
+                                        self.status = 'Onboarded'
+                                        self.boarded_date = today()
+                                    elif self.status == 'Dropped':
+                                        self.status = 'Dropped'
+                                    else:
+                                        self.status = 'Onboarding'
+                                        self.status_updated_on = today()
+                                else:
+                                    self.status = 'Ticket'
+                                    self.ticket_date = today()
+                            else:
+                                self.status = 'Emigration'
+                                self.emigration_date = today()
+                        else:
+                            if self.is_required:
+                                if not self.certificate_attestation:
+                                    frappe.errprint("no certificate")
+                                    self.status = 'Certificate Attestation'
+                                    # self.reload()
+                                else:
+                                    frappe.errprint("certificate")
+                                    self.status = 'Visa'
+                                    self.visa_date = today()
+                            else:
+                                self.status = 'Visa'
+                                self.visa_date = today()
+                    else:
+                        self.status = 'Premedical'
+                        self.premedical_date = today()
+                else:
+                    self.status = 'Offer Letter'
+                    self.offer_letter_date = today()
+                # else:
+                #     self.status = 'Sales Order'
+                #     self.status_updated_on = today()
             else:
                 self.status = 'PSL'
                 self.status_updated_on = today() 
 
 
 @frappe.whitelist()
-def create_sale_order(closure,project, customer, task, candidate_name, contact, payment,currency, client_sc, territory, passport_no,expected_doj, supplier=None):	
+def create_sale_order(closure,project, customer, task, candidate_name, contact, payment,currency, client_sc, territory, passport_no,expected_doj, delivery_manager,account_manager,supplier=None):	
     cg = frappe.db.get_value("Customer", customer, "customer_group")
     if payment:
         item_candidate_id = frappe.db.get_value("Item", {"name": contact})
@@ -426,6 +426,8 @@ def create_sale_order(closure,project, customer, task, candidate_name, contact, 
                     so = frappe.new_doc("Sales Order")
                     so.naming_series = "REC-I-2021"
                     so.customer = customer
+                    so.account_manager = account_manager,
+                    so.delivery_manager = delivery_manager,
                     so.project = project
                     so.task = task
                     so.supplier = supplier
@@ -479,6 +481,8 @@ def create_sale_order(closure,project, customer, task, candidate_name, contact, 
                     so = frappe.new_doc("Sales Order")
                     so.naming_series = "REC-O-2021"
                     so.customer = customer
+                    so.account_manager = account_manager,
+                    so.delivery_manager = delivery_manager,
                     so.project = project
                     so.task = task
                     so.supplier = supplier
