@@ -57,7 +57,6 @@ class ShiftRegister(Document):
 			return 'Half Day', total_working_hours, late_entry, early_exit, in_time, out_time
 		#customized by TeamPRO
 		#Permission Count and Late Entry Mark
-		count = 1
 		import calendar
 		frappe.errprint(logs)
 		now_date = (logs[0].time).date()
@@ -65,7 +64,7 @@ class ShiftRegister(Document):
 		start_date = date(now_date.year, now_date.month, 1)
 		end_date = date(now_date.year, now_date.month, month[1])
 		attendance = frappe.db.sql("""select name,employee,employee_name,shift,late_entry from `tabAttendance` where late_entry = 1 and employee = %s and attendance_date between %s and %s""",(logs[0].employee,start_date,end_date),as_dict = 1)
-		count = count + len(attendance)
+		count = len(attendance)
 		if self.allow_permission_count < count:
 			if late_entry:
 				return 'Half Day', total_working_hours, late_entry, early_exit, in_time, out_time
