@@ -384,7 +384,7 @@ class Closure(Document):
 
 
 @frappe.whitelist()
-def create_sale_order(closure,project, customer, task, candidate_name, contact, payment,currency, client_sc, territory, passport_no,expected_doj, delivery_manager,account_manager,supplier=None):	
+def create_sale_order(closure,project, customer, task, candidate_name, contact, payment,currency, client_sc, territory, passport_no,expected_doj, delivery_manager,account_manager):	
     cg = frappe.db.get_value("Customer", customer, "customer_group")
     if payment:
         item_candidate_id = frappe.db.get_value("Item", {"name": contact})
@@ -430,7 +430,7 @@ def create_sale_order(closure,project, customer, task, candidate_name, contact, 
                     so.delivery_manager = delivery_manager,
                     so.project = project
                     so.task = task
-                    so.supplier = supplier
+                    # so.supplier = supplier
                     so.currency = currency
                     so.transaction_date = today()
                     so.delivery_date = expected_doj
@@ -485,7 +485,7 @@ def create_sale_order(closure,project, customer, task, candidate_name, contact, 
                     so.delivery_manager = delivery_manager,
                     so.project = project
                     so.task = task
-                    so.supplier = supplier
+                    # so.supplier = supplier
                     so.transaction_date = today()
                     so.currency = currency
                     so.delivery_date = expected_doj

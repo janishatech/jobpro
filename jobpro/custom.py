@@ -377,14 +377,26 @@ def update_sams():
             }).save(ignore_permissions=True)
             frappe.db.commit()
 
+# @frappe.whitelist()
+# def late_entry():
+#     employee = frappe.get_all("Employee",{"status":"Active"},["name"])
+#     import calendar
+#     now_date = frappe.utils.datetime.datetime.now().date()
+#     month = calendar.monthrange(now_date.year, now_date.month)
+#     start_date = date(now_date.year, now_date.month, 1)
+#     end_date = date(now_date.year, now_date.month, month[1])
+#     for emp in employee:
+#         attendance = frappe.db.sql("""select name,employee,employee_name,shift,late_entry from `tabAttendance` where late_entry = 1 and employee = %s and attendance_date between %s and %s""",(emp.name,start_date,end_date),as_dict = 1)
+#         count = len(attendance)
+
 @frappe.whitelist()
-def late_entry():
-    employee = frappe.get_all("Employee",{"status":"Active"},["name"])
-    import calendar
-    now_date = frappe.utils.datetime.datetime.now().date()
-    month = calendar.monthrange(now_date.year, now_date.month)
-    start_date = date(now_date.year, now_date.month, 1)
-    end_date = date(now_date.year, now_date.month, month[1])
-    for emp in employee:
-        attendance = frappe.db.sql("""select name,employee,employee_name,shift,late_entry from `tabAttendance` where late_entry = 1 and employee = %s and attendance_date between %s and %s""",(emp.name,start_date,end_date),as_dict = 1)
-        count = len(attendance)
+def update_task(project,status):
+    # for p in project:
+    frappe.errprint(project)
+    task = frappe.get_all("Task",{"project":project})
+    for t in task:
+        if(status == "Completed"):
+            frappe.errprint(t.status)
+            t.status = frappe.db.set_value("Task",t.name,"status","Completed")
+        elif(status=="Cancelled"):
+            t.status = frappe.db.set_value("Task",t.name,"status","Cancelled")

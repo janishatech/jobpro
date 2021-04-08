@@ -37,7 +37,7 @@ frappe.ui.form.on('Candidate', {
 			frm.set_df_property("expected_doj", "reqd", 0);
 			frm.set_df_property("interview_date", "reqd", 0);
 		}
-	// frm.set_value('mobile',frm.doc.mobile_number)
+	
 	// frm.set_value('passport_number',frm.doc.passport_number)
 	var highest_qualification = 0;
 	var latest_work_experience = 0;
@@ -167,4 +167,7 @@ frappe.ui.form.on('Candidate', {
 			frappe.validated = false;
 		}
 	},
+	onload:function(frm){
+		frm.set_value('mobile',frm.doc.mobile_number)
+	}
 });

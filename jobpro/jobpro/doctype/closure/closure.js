@@ -30,7 +30,7 @@ frappe.ui.form.on('Closure', {
 		cur_frm.set_df_property("final_medical_section", "hidden", 1);
 		cur_frm.set_df_property("visa_stamping_section", "hidden", 1);
 		cur_frm.set_df_property("section_break_79", "hidden", 1);
-		cur_frm.set_df_property("ticket_section", "hidden", 1);		
+		cur_frm.set_df_property("ticket_section", "hidden", 1);
 	},
 
 	refresh: function (frm) {
@@ -60,7 +60,9 @@ frappe.ui.form.on('Closure', {
 		}
 		frm.refresh_fields();
 		if (!frm.doc.so_created) {
+			
 			if(frm.doc.status == "Sales Order") {
+				
 				frm.set_df_property("ob_custodian", "reqd", 1);
 				frm.set_df_property("passport_no", "reqd", 1);
 				frm.set_df_property("offer_letter", "reqd", 1);
@@ -72,13 +74,15 @@ frappe.ui.form.on('Closure', {
 				frm.set_df_property("issued_date", "reqd", 1);
 				frm.set_df_property("expiry_date", "reqd", 1);
 			}
-			if (frm.doc.mobile && frm.doc.candidate_owner && frm.doc.posting_date && frm.doc.payment &&
-				 frm.doc.expected_doj && frm.doc.customer && frm.doc.project && frm.doc.territory && frm.doc.task && frm.doc.date_of_birth && frm.doc.irf
-				  ) {
+			if(frm.doc.status != "PSL"){
+			// if (frm.doc.mobile && frm.doc.candidate_owner && frm.doc.posting_date && frm.doc.payment &&
+			// 	 frm.doc.expected_doj && frm.doc.customer && frm.doc.project && frm.doc.territory && frm.doc.task && frm.doc.date_of_birth && frm.doc.irf
+			// 	  ) {
 					// if( frm.doc.ob_custodian && frm.doc.passport_no &&  frm.doc.offer_letter && frm.doc.sol && frm.doc.photo
 					// 	frm.doc.ecr_status && frm.doc.passport && frm.doc.place_of_issue && frm.doc.issued_date && frm.doc.expiry_date ){
-
-				cur_frm.add_custom_button(__("Confirm Sale Order"), function () {
+			
+				
+				cur_frm.add_custom_button(__("Sale Invoice"), function () {
 					if (frm.doc.payment == 'Client' && frm.doc.client_si <= 0) {
 						msgprint("Please Enter Client Service Charge Value")
 					} else if (frm.doc.payment == 'Candidate' && frm.doc.candidate_si <= 0) {
@@ -106,8 +110,8 @@ frappe.ui.form.on('Closure', {
 										client_sc: cur_frm.doc.client_si || '',
 										territory: cur_frm.doc.territory,
 										passport_no: cur_frm.doc.passport_no || '',
-										expected_doj: cur_frm.doc.expected_doj,
-										supplier: cur_frm.doc.sa_owner
+										expected_doj: cur_frm.doc.expected_doj
+										// supplier: cur_frm.doc.sa_owner || ''
 									},
 									callback: function (r) {
 
@@ -129,7 +133,8 @@ frappe.ui.form.on('Closure', {
 					}
 				}).addClass('btn btn-primary');
 			// }
-			}
+			// }
+				}
 		}
 		cur_frm.set_df_property("premedical_section", "hidden", 1);
 		cur_frm.set_df_property("certificate_attestation_section", "hidden", 1);

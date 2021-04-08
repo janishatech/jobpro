@@ -12,6 +12,7 @@
   "candidate_summary_section",
   "given_name",
   "mobile_number",
+  "mobile",
   "candidate_created_by",
   "column_break_8",
   "candidate_image",
@@ -825,11 +826,18 @@
    "fieldtype": "Link",
    "label": "Institutes",
    "options": "Institutes"
+  },
+  {
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "label": "Mobile",
+   "length": 10,
+   "options": "Phone"
   }
  ],
  "image_field": "candidate_image",
  "links": [],
- "modified": "2021-03-17 15:24:58.589086",
+ "modified": "2021-03-31 12:33:22.763082",
  "modified_by": "Administrator",
  "module": "jobPRO",
  "name": "Candidate",
