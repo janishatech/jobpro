@@ -5,29 +5,39 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
-from frappe.utils import today, add_years
+from frappe.utils import today, add_years,nowdate
 import json
 from datetime import date
+import qrcode
+import base64
+from PIL import Image
+from io import BytesIO
 
 class Candidate(Document):
-    pass
-    # def validate(self):
-    #     frappe.errprint(type(self.dob))
-    #     frappe.errprint(type(self.issued_date))
-    #     if self.dob and self.dob > date.today():
-    #         frappe.throw("Date Of Birth can't be Future Date")
-    #     if self.issued_date and self.issued_date > date.today():
-    #         frappe.throw("Issued Date can't be Future Date")
-    #     if self.expected_doj and self.expected_doj < date.today():
-    #         frappe.throw("Expected Date of Joining can't be Past Date")
+    def validate(self):
+        input_str = 'QR data'
+        qr = qrcode.make(input_str)
+        temp = BytesIO()
+        qr.save(temp, "PNG")
+        temp.seek(0)
+        b64 = base64.b64encode(temp.read())
+        qr_img =  "<img src='data:image/png;base64,{0}'/>".format(b64.decode("utf-8"))
+        frappe.errprint(qr_img)
+        self.qr = "<h1>Test</h1>"
+        if self.dob and self.dob > date.today():
+            frappe.throw("Date Of Birth can't be Future Date")
+        if self.issued_date and self.issued_date > nowdate():
+            frappe.throw("Issued Date can't be Future Date")
+        if self.expected_doj and self.expected_doj < nowdate():
+            frappe.throw("Expected Date of Joining can't be Past Date")
 
-    # def validate_date(self):        
-    #     if self.issued_date and self.issued_date > date.today():
-    #         return "Issued Date can't be Future Date"
+    def validate_date(self):        
+        if self.issued_date and self.issued_date > date.today():
+            return "Issued Date can't be Future Date"
             
-    # def validate_dob(self):
-    #     if self.dob and self.dob > date.today():
-    #         return "DOB can't be Future Date"
+    def validate_dob(self):
+        if self.dob and self.dob > date.today():
+            return "DOB can't be Future Date"
 
 @frappe.whitelist()
 def Specialization(q_data):

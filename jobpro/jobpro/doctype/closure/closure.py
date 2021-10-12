@@ -386,6 +386,7 @@ class Closure(Document):
 @frappe.whitelist()
 def create_sale_order(closure,project, customer, task, candidate_name, contact, payment,currency, client_sc, territory, passport_no,expected_doj, delivery_manager,account_manager):	
     cg = frappe.db.get_value("Customer", customer, "customer_group")
+    parent_territory = frappe.get_value('Territory',territory,'parent_territory')
     if payment:
         item_candidate_id = frappe.db.get_value("Item", {"name": contact})
         item_pp_id = frappe.db.get_value("Item", {"name": passport_no})
@@ -393,7 +394,7 @@ def create_sale_order(closure,project, customer, task, candidate_name, contact, 
             pass
         else:
             item = frappe.new_doc("Item")
-            if territory == 'India':
+            if parent_territory == 'India':
                 item.item_code = contact
                 item.append("taxes", {
                             "item_tax_template":"Tamil Nadu GST @ 18% - THIS",
@@ -421,7 +422,7 @@ def create_sale_order(closure,project, customer, task, candidate_name, contact, 
             item.insert()
             item.save(ignore_permissions=True)
 
-            if territory == 'India':
+            if territory == 'India' or parent_territory == 'India':
                 if payment != "Candidate":
                     so = frappe.new_doc("Sales Order")
                     so.naming_series = "REC-I-2021"

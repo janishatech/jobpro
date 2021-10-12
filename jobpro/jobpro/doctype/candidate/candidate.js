@@ -87,10 +87,10 @@ frappe.ui.form.on('Candidate', {
 			frappe.msgprint(__("Mobile No.: Only Numbers are allowed."));
 			frappe.validated = false;
 		}
-	if(len.length < 10 || len.length > 10){
-		frappe.throw("Mobile Number must be 10 digits")
-		frappe.validated = false;
-	}
+	// if(len.length < 10 || len.length > 10){
+	// 	frappe.throw("Mobile Number must be 10 digits")
+	// 	frappe.validated = false;
+	// }
 }
 	
 	if (frm.doc.passport_number){

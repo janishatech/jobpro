@@ -25,6 +25,7 @@
   "account_manager",
   "column_break_column",
   "territory",
+  "parent_territory",
   "visa_state",
   "task",
   "task_subject",
@@ -179,7 +180,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Passport No",
-   "length": 8
+   "length": 8,
+   "mandatory_depends_on": "eval:doc.status == 'Sales Order' && doc.parent_territory != 'India'"
   },
   {
    "fieldname": "candidate_owner",
@@ -801,11 +803,17 @@
   {
    "fieldname": "ceritification",
    "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "territory.parent_territory",
+   "fieldname": "parent_territory",
+   "fieldtype": "Read Only",
+   "label": "Parent Territory"
   }
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2021-03-12 15:58:07.071235",
+ "modified": "2021-10-05 18:53:23.242862",
  "modified_by": "Administrator",
  "module": "jobPRO",
  "name": "Closure",
