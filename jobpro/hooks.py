@@ -85,6 +85,9 @@ app_license = "MIT"
 doc_events = {
     "Candidate": {
         "on_update": "jobpro.jobpro.doctype.candidate.candidate.create_closure"
+    },
+    "IAF Form": {
+        "on_update": "teampro.teampro.doctype.iaf_form.iaf_form.update_candidate"
     }
 }
 # doc_events = {
@@ -105,6 +108,9 @@ scheduler_events = {
 	"daily": [
 		"jobpro.custom.leave_allocation"
 	],
+    "monthly":[
+        "jobpro.custom.attendance_calc"
+    ]
 # 	"hourly": [
 # 		"jobpro.tasks.hourly"
 # 	],

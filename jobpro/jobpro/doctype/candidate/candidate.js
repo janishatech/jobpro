@@ -10,6 +10,15 @@ let calculate_age = function (birth) {
 };
 
 frappe.ui.form.on('Candidate', {
+	setup:function(frm){
+		frm.set_query("task", function () {
+			return {
+				"filters": {
+					"project": frm.doc.project
+				}
+			};
+		});
+	},
 	validate:function(frm){
 		if(frm.doc.pending_for == "Proposed PSL") {
 			frm.set_df_property("customer", "reqd", 1);
@@ -19,6 +28,7 @@ frappe.ui.form.on('Candidate', {
 			frm.set_df_property("expected_doj", "reqd", 1);
 			frm.set_df_property("task", "reqd", 1);
 			frappe.db.get_value('Territory',frm.doc.territory, 'parent_territory', (r) => {
+				console.log(r)
 				if (r && r.parent_territory == 'India') {
 					frm.set_df_property("passport_number", "reqd", 0);
 				}
@@ -114,7 +124,6 @@ frappe.ui.form.on('Candidate', {
 			type: 'GET',
 			dataType: 'json',
 			success: function (data, textStatus, xhr) {
-				console.log(data[0]['PostOffice'][0])
 				cur_frm.set_value("temp_location__district", data[0]['PostOffice'][0]['District'])
 				cur_frm.set_value("temp_state", data[0]['PostOffice'][0]['State'])
 				cur_frm.refresh_fields();

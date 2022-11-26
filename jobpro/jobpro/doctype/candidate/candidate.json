@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "C.#####",
+ "autoname": "naming_series:",
  "creation": "2020-08-06 12:14:27.458284",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "last_updated_on",
   "training_candidate",
   "section_break_3",
@@ -18,20 +19,38 @@
   "section_break_9",
   "pending_for",
   "column",
+  "client_reference_no",
   "qr",
   "candidate_summary_section",
   "given_name",
   "mobile_number",
   "mobile",
   "candidate_created_by",
+  "vaccination_status",
+  "vaccine_name",
   "column_break_8",
   "candidate_image",
   "sa_agent",
+  "nationality",
   "passport_number",
   "passport_expiry_date",
   "position",
   "interview_date",
   "temp_interview_location",
+  "interview_notes_section",
+  "india_experience",
+  "overseas_experience",
+  "total_experience",
+  "notice_period_months",
+  "column_break_127",
+  "ctc_mentioned_in",
+  "currency_ctc",
+  "expected_ctc",
+  "current_ctc",
+  "service_charge_candidate",
+  "interview_location",
+  "boarding_point",
+  "certificate_attach",
   "attachments_section",
   "irf",
   "column_break_20",
@@ -43,26 +62,27 @@
   "project",
   "task",
   "subject",
-  "offer_letter",
   "column_break_26",
   "territory",
-  "expected_doj",
   "country",
+  "service",
   "candidate_task",
   "offered_salary_section",
   "currency",
+  "expected_doj",
   "column_break_32",
   "basic",
+  "offer_letter",
   "column_break_13",
   "food",
   "column_break_15",
   "other_allowances",
   "personal_information_section",
   "mail_id",
+  "alternate_mail_id",
   "skype_id",
   "alternate_contact",
   "imo_number",
-  "alternate_mail_id",
   "age",
   "column_break_11",
   "address",
@@ -77,6 +97,7 @@
   "is_married",
   "passport_details_section",
   "applied",
+  "pp_original_at",
   "ecr_status",
   "temp_dob",
   "column_break_52",
@@ -129,18 +150,16 @@
   "special_experience",
   "driving_licence",
   "temp_license_status",
-  "interview_notes_section",
-  "india_experience",
-  "overseas_experience",
-  "total_experience",
-  "notice",
-  "column_break_65",
-  "ctc_mentioned_in",
-  "expected_ctc",
-  "current_ctc",
-  "service_charge",
-  "interview_location",
-  "boarding_point",
+  "original_document_tracker_section",
+  "original_passport_at",
+  "custodian",
+  "pp_custodian_agent",
+  "pp_custodian",
+  "pp_custodian_candidate",
+  "storage__box_no",
+  "print_odr",
+  "column_break_145",
+  "other_documents",
   "document_verification_section",
   "remarks_2",
   "screened_by",
@@ -176,12 +195,9 @@
    "default": "User",
    "fieldname": "candidate_created_by",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Candidate Owner",
-   "options": "User",
-   "reqd": 1,
-   "search_index": 1
+   "options": "User"
   },
   {
    "fieldname": "candidate_summary_section",
@@ -198,6 +214,7 @@
    "search_index": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "mail_id",
    "fieldtype": "Data",
    "label": "Mail ID",
@@ -206,11 +223,13 @@
   {
    "fieldname": "skype_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Skype ID"
   },
   {
    "fieldname": "alternate_contact",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Alternate Contact",
    "length": 10
   },
@@ -260,6 +279,7 @@
    "label": "Applied"
   },
   {
+   "depends_on": "eval:doc.applied == 0",
    "fieldname": "ecr_status",
    "fieldtype": "Select",
    "label": "ECR Status",
@@ -294,6 +314,7 @@
   },
   {
    "depends_on": "eval:doc.applied == 0",
+   "fetch_from": "candidate.passport_expiry_date",
    "fieldname": "expiry_date",
    "fieldtype": "Date",
    "label": "Expiry Date"
@@ -417,6 +438,7 @@
    "label": "Notice Period (In Days)"
   },
   {
+   "collapsible": 1,
    "fieldname": "special_skill_section",
    "fieldtype": "Section Break",
    "label": "Special Skill"
@@ -440,10 +462,6 @@
    "options": "\nHinduism\nIslam\nChristianity\nSikhism\nBuddhism\nJainism\nOthers"
   },
   {
-   "fieldname": "column_break_54",
-   "fieldtype": "Column Break"
-  },
-  {
    "description": "US Army Base",
    "fieldname": "special_experience",
    "fieldtype": "Data",
@@ -452,6 +470,8 @@
   {
    "fieldname": "territory",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Territory",
    "options": "Territory"
   },
@@ -464,8 +484,8 @@
   {
    "fieldname": "driving_licence",
    "fieldtype": "Table",
-   "label": "Driving licence",
-   "options": "Driving licence"
+   "label": "Driving license",
+   "options": "Driving license"
   },
   {
    "fieldname": "interview_notes_section",
@@ -489,18 +509,9 @@
    "read_only": 1
   },
   {
-   "fieldname": "notice",
-   "fieldtype": "Data",
-   "label": " Notice Period (months)"
-  },
-  {
    "fieldname": "current_ctc",
    "fieldtype": "Currency",
    "label": "Current CTC"
-  },
-  {
-   "fieldname": "column_break_65",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "ctc_mentioned_in",
@@ -551,7 +562,6 @@
    "label": "Selection Date"
   },
   {
-   "depends_on": "eval:doc.pending_for == 'Proposed PSL'",
    "fieldname": "offered_salary_section",
    "fieldtype": "Section Break",
    "label": "Offered Salary"
@@ -586,6 +596,7 @@
    "label": "SA Details"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "sa_agent",
    "fieldtype": "Link",
    "label": "SA ID",
@@ -644,6 +655,7 @@
    "options": "Territory"
   },
   {
+   "depends_on": "eval:doc.applied == 0",
    "fieldname": "temp_dob",
    "fieldtype": "Date",
    "hidden": 1,
@@ -686,12 +698,6 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Temp License Status"
-  },
-  {
-   "fieldname": "service_charge",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Service Charge (Candidate)"
   },
   {
    "fieldname": "temp_interview_location",
@@ -742,9 +748,12 @@
    "length": 10
   },
   {
+   "allow_in_quick_entry": 1,
+   "default": "IDB",
    "fieldname": "pending_for",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Candidate Status",
    "options": "\nIDB\nSourced\nSubmitted\nShortlisted\nLinedup\nClient Offered\nInterviewed\nProposed PSL"
   },
@@ -789,16 +798,20 @@
   {
    "fieldname": "customer",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "project",
    "fieldtype": "Link",
    "label": "Project",
    "options": "Project"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "task",
    "fieldtype": "Link",
    "label": "Task",
@@ -843,10 +856,11 @@
    "length": 8
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "mobile_number",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Mobile / WhatsAPP",
+   "label": "Primary Mobile Number",
    "length": 14,
    "options": "Phone"
   },
@@ -859,7 +873,7 @@
   {
    "fieldname": "mobile",
    "fieldtype": "Data",
-   "label": "Mobile",
+   "label": "Secondary Mobile Number",
    "length": 14,
    "options": "Phone"
   },
@@ -957,6 +971,7 @@
   {
    "fieldname": "document_verification_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Document Verification"
   },
   {
@@ -1016,6 +1031,7 @@
   {
    "fieldname": "country",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Country",
    "options": "Country"
   },
@@ -1032,12 +1048,152 @@
   {
    "fieldname": "qr",
    "fieldtype": "HTML",
+   "hidden": 1,
    "label": "QR"
+  },
+  {
+   "fieldname": "column_break_54",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notice_period_months",
+   "fieldtype": "Data",
+   "label": " Notice Period (months)"
+  },
+  {
+   "fieldname": "column_break_127",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_charge_candidate",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Service Charge (Candidate)"
+  },
+  {
+   "fieldname": "vaccination_status",
+   "fieldtype": "Select",
+   "label": "Vaccination Status",
+   "options": "\nDose 1\nDose 2\nNo Vaccination"
+  },
+  {
+   "depends_on": "eval:doc.vaccination_status == \"Dose 2\"",
+   "description": "Attach Final Document Issued by Ministry of Health & Family Welfare, Govt of India",
+   "fieldname": "certificate_attach",
+   "fieldtype": "Attach",
+   "label": "Attach Certificate"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "original_document_tracker_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Original Document Tracker"
+  },
+  {
+   "fieldname": "original_passport_at",
+   "fieldtype": "Select",
+   "label": "Original Passport At ",
+   "options": "TEAMPRO\nAgent\nSupplier\nCandidate"
+  },
+  {
+   "depends_on": "eval:doc.original_passport_at ==\"Supplier\"",
+   "fieldname": "pp_custodian",
+   "fieldtype": "Link",
+   "label": "PP Custodian",
+   "options": "Supplier"
+  },
+  {
+   "depends_on": "eval:doc.original_passport_at ==\"Agent\"",
+   "fieldname": "pp_custodian_agent",
+   "fieldtype": "Link",
+   "label": "PP Custodian",
+   "options": "SAMS"
+  },
+  {
+   "depends_on": "eval:doc.original_passport_at ==\"Candidate\"",
+   "fieldname": "pp_custodian_candidate",
+   "fieldtype": "Link",
+   "label": "PP Custodian",
+   "options": "Candidate"
+  },
+  {
+   "depends_on": "eval:doc.original_passport_at ==\"TEAMPRO\"",
+   "fieldname": "custodian",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "PP Custodian",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "storage__box_no",
+   "fieldtype": "Data",
+   "label": "Storage  Box No"
+  },
+  {
+   "fieldname": "print_odr",
+   "fieldtype": "Button",
+   "label": "Print ODR"
+  },
+  {
+   "fieldname": "column_break_145",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "other_documents",
+   "fieldtype": "Table",
+   "label": "Other Documents ODR",
+   "options": "Other Documents ODR"
+  },
+  {
+   "fieldname": "client_reference_no",
+   "fieldtype": "Data",
+   "label": "Client Reference No"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Naming Series"
+  },
+  {
+   "depends_on": "eval:doc.applied == 0",
+   "fieldname": "pp_original_at",
+   "fieldtype": "Select",
+   "label": "PP Original at",
+   "options": "\nTEAMPRO\nCandidate\nSupplier\nAgent"
+  },
+  {
+   "default": "REC-I",
+   "fieldname": "service",
+   "fieldtype": "Link",
+   "label": "Service",
+   "options": "Services"
+  },
+  {
+   "depends_on": "eval:doc.vaccination_status == \"Dose 1\" || doc.vaccination_status == \"Dose 2\"",
+   "fieldname": "vaccine_name",
+   "fieldtype": "Link",
+   "label": "Vaccine Name",
+   "options": "Vaccine"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Link",
+   "label": "Nationality",
+   "options": "Nationality",
+   "reqd": 1
+  },
+  {
+   "fieldname": "currency_ctc",
+   "fieldtype": "Link",
+   "label": "CTC Currency ",
+   "options": "Currency"
   }
  ],
  "image_field": "candidate_image",
  "links": [],
- "modified": "2021-09-28 21:03:51.136873",
+ "modified": "2022-11-08 10:08:35.981140",
  "modified_by": "Administrator",
  "module": "jobPRO",
  "name": "Candidate",
@@ -1056,6 +1212,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "given_name",

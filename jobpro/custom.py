@@ -6,7 +6,7 @@ from six import string_types
 import frappe
 import json
 from frappe.utils import (getdate, cint, add_months, date_diff, add_days,
-    nowdate, get_datetime_str, cstr, get_datetime, now_datetime, format_datetime)
+    nowdate, get_datetime_str, cstr, get_datetime, now_datetime, format_datetime,datetime,get_first_day,get_last_day,today)
 from datetime import datetime
 from calendar import monthrange
 from frappe import _, msgprint
@@ -210,7 +210,7 @@ def project_sa_candidate(project):
 @frappe.whitelist()
 def count_task(project):
     task = frappe.db.count('Task',{'project':project})
-    count = frappe.db.sql("select sum(vac),sum(sp),sum(fp),sum(sl),sum(psl) from `tabTask` where `project` = %s",project)
+    count = frappe.db.sql("select sum(vac),sum(sp),sum(fp),sum(sl),sum(psl) from `tabTask` where `project` = %s and status in('Open','Working','Pending Review','Overdue')" ,project)
     return task, count
 
 # def bulk_update_from_csv(filename):
@@ -273,7 +273,7 @@ def auto_mail_to_sams(project,territory):
                 message="""<p>Dear %s,</p>
                 <p>Greetings From TEAMPRO !!! <br>
                     We are always happy to be associated with you, and appreciate your sincere efforts to be support us in recruitment.
-                    We have a manpower requirement for once of our reputed client in %s ; The details for project is as below:
+                    We have a manpower requirement������������������������������������������������������for once of our reputed client in %s������������������������������������������������������; The details for project is as below:
                     <table class='table table-bordered'>
                     <tr>
                     <th>Position</th>  <th>Vacancy</th>  <th> Valid till</th>
@@ -340,8 +340,8 @@ def auto_mail_to_sams(project,territory):
                     </tr>
                     </table>
                     <br>
-                    Please contact us at +91 73050 56202 / +91 73050 56203 / +91 73050 56201 / +91 7550224400
-                    or write to us at cv@groupteampro.com / hr@groupteampro.com
+                    Please contact us at������������������������������������������������������+91 73050 56202������������������������������������������������������/������������������������������������������������������+91 73050 56203������������������������������������������������������/������������������������������������������������������+91 73050 56201������������������������������������������������������/������������������������������������������������������+91 7550224400
+                    or write to us at������������������������������������������������������cv@groupteampro.com������������������������������������������������������/������������������������������������������������������hr@groupteampro.com
                     </p> 
                     <style>
                     th {
@@ -400,3 +400,16 @@ def update_task(project,status):
             t.status = frappe.db.set_value("Task",t.name,"status","Completed")
         elif(status=="Cancelled"):
             t.status = frappe.db.set_value("Task",t.name,"status","Cancelled")
+
+
+@frappe.whitelist()
+def create_scheduled_job():
+    job = frappe.db.exists('Scheduled Job Type', 'send_miss_punch')
+    if not job:
+        sjt = frappe.new_doc("Scheduled Job Type")
+        sjt.update({
+            "method": 'teampro.email_alerts.send_miss_punch',
+            "frequency": 'Cron',
+            "cron_format": '0 18 * * *'
+        })
+        sjt.save(ignore_permissions=True)   
