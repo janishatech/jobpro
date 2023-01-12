@@ -1,0 +1,69 @@
+2022-11-29 12:35:40,111 ERROR scheduler Exception in Enqueue Events for Site jobpro.local
+Traceback (most recent call last):
+  File "apps/frappe/frappe/utils/scheduler.py", line 76, in enqueue_events_for_site
+    if is_scheduler_inactive():
+  File "apps/frappe/frappe/utils/scheduler.py", line 113, in is_scheduler_inactive
+    if is_scheduler_disabled():
+  File "apps/frappe/frappe/utils/scheduler.py", line 125, in is_scheduler_disabled
+    frappe.db.get_single_value("System Settings", "enable_scheduler")
+  File "apps/frappe/frappe/database/database.py", line 775, in get_single_value
+    df = frappe.get_meta(doctype).get_field(fieldname)
+  File "apps/frappe/frappe/__init__.py", line 1203, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "apps/frappe/frappe/model/meta.py", line 65, in get_meta
+    meta = Meta(doctype)
+  File "apps/frappe/frappe/model/meta.py", line 123, in __init__
+    super().__init__("DocType", doctype)
+  File "apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "apps/frappe/frappe/model/meta.py", line 129, in load_from_db
+    super().load_from_db()
+  File "apps/frappe/frappe/model/document.py", line 149, in load_from_db
+    frappe.throw(
+  File "apps/frappe/frappe/__init__.py", line 522, in throw
+    msgprint(
+  File "apps/frappe/frappe/__init__.py", line 490, in msgprint
+    _raise_exception()
+  File "apps/frappe/frappe/__init__.py", line 442, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: DocType System Settings not found
+
+2022-12-09 21:32:58,348 ERROR scheduler Exception in Enqueue Events for Site jobpro.local
+Traceback (most recent call last):
+  File "env/lib/python3.10/site-packages/pymysql/connections.py", line 613, in connect
+    sock = socket.create_connection(
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "apps/frappe/frappe/utils/scheduler.py", line 76, in enqueue_events_for_site
+    if is_scheduler_inactive():
+  File "apps/frappe/frappe/utils/scheduler.py", line 113, in is_scheduler_inactive
+    if is_scheduler_disabled():
+  File "apps/frappe/frappe/utils/scheduler.py", line 125, in is_scheduler_disabled
+    frappe.db.get_single_value("System Settings", "enable_scheduler")
+  File "apps/frappe/frappe/database/database.py", line 772, in get_single_value
+    ).run()
+  File "apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "apps/frappe/frappe/database/database.py", line 199, in sql
+    self.connect()
+  File "apps/frappe/frappe/database/database.py", line 113, in connect
+    self._conn = self.get_connection()
+  File "apps/frappe/frappe/database/mariadb/database.py", line 98, in get_connection
+    conn = self._get_connection()
+  File "apps/frappe/frappe/database/mariadb/database.py", line 104, in _get_connection
+    return self.create_connection()
+  File "apps/frappe/frappe/database/mariadb/database.py", line 107, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+  File "env/lib/python3.10/site-packages/pymysql/connections.py", line 353, in __init__
+    self.connect()
+  File "env/lib/python3.10/site-packages/pymysql/connections.py", line 664, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+

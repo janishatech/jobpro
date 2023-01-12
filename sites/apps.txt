@@ -1,0 +1,6 @@
+frappe
+go1_cms
+hrms
+erpnext
+jobpro
+payments

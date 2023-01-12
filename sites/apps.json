@@ -1,0 +1,22 @@
+{
+    "jobpro": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "7a52a9ad81e728edd3eb90f1f0af193fd03dc688",
+            "branch": "master"
+        },
+        "required": [],
+        "idx": 1,
+        "version": "0.0.1"
+    },
+    "go1_cms": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "e12927ec1a1dfa45875d206c906ab0bd7b5c2444",
+            "branch": "master"
+        },
+        "required": [],
+        "idx": 2,
+        "version": "0.0.1"
+    }
+}

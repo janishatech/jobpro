@@ -1,0 +1,1434 @@
+2022-11-29 12:48:51,735 ERROR frappe New Exception collected with id: 2022-11-29 12:48:51.634465-127.0.0.1-666
+Site: jobpro.local
+Form Dict: {}
+2022-11-29 12:52:25,115 ERROR frappe New Exception collected with id: 2022-11-29 12:52:25.068554-127.0.0.1-e2b
+Site: jobpro.local
+Form Dict: {}
+2022-11-29 12:54:52,990 ERROR frappe New Exception collected with id: 2022-11-29 12:54:52.934976-127.0.0.1-e8b
+Site: jobpro.local
+Form Dict: {}
+2022-12-07 13:57:13,935 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'doctype': 'Job Offer', 'name': 'HR-OFF-2022-00002', 'format': 'Non Metro Form', 'no_letterhead': '0', 'letterhead': 'JOBPRO', 'settings': '{}', '_lang': 'en', 'cmd': 'frappe.utils.print_format.download_pdf', 'style': None, 'doc': <JobOffer: HR-OFF-2022-00002 docstatus=1>}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/print_format.py", line 129, in download_pdf
+    frappe.local.response.filecontent = get_pdf(html)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/pdf.py", line 38, in get_pdf
+    filedata = pdfkit.from_string(html, options=options or {}, verbose=True)
+  File "/home/teampro/jobpro-bench/env/lib/python3.10/site-packages/pdfkit/api.py", line 75, in from_string
+    return r.to_pdf(output_path)
+  File "/home/teampro/jobpro-bench/env/lib/python3.10/site-packages/pdfkit/pdfkit.py", line 201, in to_pdf
+    self.handle_error(exit_code, stderr)
+  File "/home/teampro/jobpro-bench/env/lib/python3.10/site-packages/pdfkit/pdfkit.py", line 155, in handle_error
+    raise IOError('wkhtmltopdf reported an error:\n' + stderr)
+OSError: wkhtmltopdf reported an error:
+The switch --print-media-type, is not support using unpatched qt, and will be ignored.The switch --disable-smart-shrinking, is not support using unpatched qt, and will be ignored.Exit with code 1 due to network error: ProtocolUnknownError
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-08 09:26:07,364 ERROR frappe New Exception collected with id: 2022-12-08 09:26:05.049744-127.0.0.1-abe
+Site: jobpro.local
+Form Dict: {'doctype': 'Employee', 'with_parent': '1', 'cached_timestamp': '', 'cmd': 'frappe.desk.form.load.getdoctype'}
+2022-12-08 14:12:24,013 ERROR frappe New Exception collected with id: 2022-12-08 14:12:23.775565-127.0.0.1-38f
+Site: jobpro.local
+Form Dict: {'email': 'janisha.g@groupteampro.com', 'name': 'Jaani', 'cmd': 'jobpro.custom.create_user'}
+2022-12-08 14:47:45,779 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'gayathri.r@groupteampro.com', 'name': 'Gayathri', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 9, in create_user
+    doc.save(ignore_permissions=True)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670491061-cHV3qt0YwGk1-5IXX6T8W', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 13:55:15,550 ERROR frappe New Exception collected with id: 2022-12-09 13:55:14.757076-127.0.0.1-445
+Site: jobpro.local
+Form Dict: {}
+2022-12-09 14:37:00,267 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'veeramayandi.p@groupteampro.com', 'name': 'Veera Mayandi', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 9, in create_user
+    doc.save(ignore_permissions=True)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670576815-r6WkWUBZIOs1-aRezP2FG', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 14:57:56,784 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'name': '74', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 381, in send_now
+    record.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670578072-oRWFubBYCmI1-6zZY5sZ8', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 15:02:27,307 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'name': '74', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 381, in send_now
+    record.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670578343-KWWephBZDiE1-1cQC34Zt', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 15:06:07,606 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'name': '74', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 381, in send_now
+    record.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670578563-1aWIRiBY4Sw1-WjbvdZnM', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 15:07:34,207 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'name': '74', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 381, in send_now
+    record.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670578650-SbW4OrBYheA1-F1CrtzPK', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 16:47:16,004 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'karthikeyan.s@groupteampro.com', 'name': 'Karthik', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 10, in create_user
+    doc.save(ignore_permissions=True)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670584631-8HYVs9BZmOs1-gpTSNQZT', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 16:48:03,417 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'name': '78', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 381, in send_now
+    record.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670584679-uHYqRWCYHCg1-QZSyuuie', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 17:24:35,212 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'karthikeyan.s@groupteampro.com', 'name': 'Karthik', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 11, in create_user
+    doc.save(ignore_permissions=True)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670586870-RsYXqD0ZIuQ1-4Lextqxb', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 18:07:40,945 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'mohamedshajith.j@groupteampro.com', 'name': 'Shajith', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 11, in create_user
+    doc.save(ignore_permissions=True)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670589456-YbZMhY0YGGk1-mNWo5MWU', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 21:19:26,028 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670600959-EncME12Y80U1-zHl3NZi0', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 21:21:32,433 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'name': '95', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 381, in send_now
+    record.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670601086-NpcPt22YN8c1-WMAN55JY', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 21:21:52,689 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'name': '95', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 381, in send_now
+    record.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670601107-hpc8W12Yc0U1-r9CfcwL5', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-09 22:48:55,477 ERROR frappe New Exception collected with id: 2022-12-09 22:48:54.960833-127.0.0.1-714
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-09 22:49:38,768 ERROR frappe New Exception collected with id: 2022-12-09 22:49:38.754553-127.0.0.1-7fb
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-09 22:50:22,492 ERROR frappe New Exception collected with id: 2022-12-09 22:50:22.484269-127.0.0.1-0be
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-09 22:50:39,333 ERROR frappe New Exception collected with id: 2022-12-09 22:50:39.323727-127.0.0.1-996
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-09 22:51:35,888 ERROR frappe New Exception collected with id: 2022-12-09 22:51:35.869745-127.0.0.1-aec
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-10 10:50:48,174 ERROR frappe New Exception collected with id: 2022-12-10 10:50:47.625670-127.0.0.1-b2e
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-10 10:51:27,290 ERROR frappe New Exception collected with id: 2022-12-10 10:51:27.285191-127.0.0.1-262
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-10 10:52:37,565 ERROR frappe New Exception collected with id: 2022-12-10 10:52:36.811813-127.0.0.1-34c
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-10 10:53:08,630 ERROR frappe New Exception collected with id: 2022-12-10 10:53:08.625421-127.0.0.1-36a
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-10 10:53:48,516 ERROR frappe New Exception collected with id: 2022-12-10 10:53:48.501326-127.0.0.1-c45
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-10 10:56:52,865 ERROR frappe New Exception collected with id: 2022-12-10 10:56:52.857467-127.0.0.1-e90
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-10 10:56:58,643 ERROR frappe New Exception collected with id: 2022-12-10 10:56:58.637519-127.0.0.1-1db
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+2022-12-10 11:44:51,522 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'raaju.g@groupteampro.com', 'name': 'raaju', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 15, in create_user
+    user.save(ignore_permissions=True)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670652884-fEUs5S7YF0U1-LaibLo0M', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 11:48:45,496 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'janisha1508@gmail.com', 'name': 'Janisha George', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670653116-SIU00Z7YE0U1-hi3EGtxA', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 12:01:17,872 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'mahajraja1234@gmail.com', 'name': 'Maha Raja', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670653869-xUUvCW7YliE1-xm3KifJR', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 12:05:29,973 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'mahajraja1234@gmail.com', 'name': 'Maha Raja', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670654121-HZUZHb7YfmI1-WMFutohr', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 12:17:09,157 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'mahajraja1234@gmail.com', 'name': 'Maha Raja', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670654823-0lUh4k7YPa61-4adUmjeO', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 12:24:51,931 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'mahajraja1234@gmail.com', 'name': 'Maha Raja', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670655284-esUBgd7Y3Cg1-pw7MIpET', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 12:36:54,727 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'mahajraja1234@gmail.com', 'name': 'Maha Raja', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670656007-i6VUJq7ZLOs1-vLoskxuI', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 17:25:43,982 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'aarthi123@gmail.com', 'name': 'Aarthi', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670673339-btZM8p9Y8iE1-SKl3gZNC', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 17:39:42,625 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'aarthi123@gmail.com', 'name': 'Aarthi', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 12, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670674177-Z9aUSs9Y0a61-aCLdVbmP', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 17:55:54,730 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'aarthi123@gmail.com', 'name': 'Aarthi', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 11, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670675150-mPaiQv9YJqM1-5FTEZKRG', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 18:09:57,419 ERROR frappe New Exception collected with id: 2022-12-10 18:09:57.352884-127.0.0.1-c3e
+Site: jobpro.local
+Form Dict: {'doctype': 'User', 'fields': '["`tabUser`.`name`","`tabUser`.`owner`","`tabUser`.`creation`","`tabUser`.`modified`","`tabUser`.`modified_by`","`tabUser`.`_user_tags`","`tabUser`.`_comments`","`tabUser`.`_assign`","`tabUser`.`_liked_by`","`tabUser`.`docstatus`","`tabUser`.`idx`","`tabUser`.`user_type`","`tabUser`.`full_name`","`tabUser`.`user_image`","`tabUser`.`enabled`"]', 'filters': '[]', 'order_by': '`tabUser`.`modified` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '`tabUser`.`name`', 'with_comment_count': 'true', 'cmd': 'frappe.desk.reportview.get'}
+2022-12-10 18:23:22,099 ERROR frappe New Exception collected with id: 2022-12-10 18:23:20.425270-127.0.0.1-4a7
+Site: jobpro.local
+Form Dict: {'doctype': 'User', 'fields': '["`tabUser`.`name`","`tabUser`.`owner`","`tabUser`.`creation`","`tabUser`.`modified`","`tabUser`.`modified_by`","`tabUser`.`_user_tags`","`tabUser`.`_comments`","`tabUser`.`_assign`","`tabUser`.`_liked_by`","`tabUser`.`docstatus`","`tabUser`.`idx`","`tabUser`.`user_type`","`tabUser`.`full_name`","`tabUser`.`user_image`","`tabUser`.`enabled`"]', 'filters': '[["User","name","=","hereabdulla6@gmail.com"]]', 'order_by': '`tabUser`.`modified` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '`tabUser`.`name`', 'with_comment_count': 'true', 'cmd': 'frappe.desk.reportview.get'}
+2022-12-10 18:30:20,786 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'aarthi123@gmail.com', 'name': 'Aarthi', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670677215-D0bU89AZc0U1-o9LMKYfD', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 18:38:52,894 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'aarthi123@gmail.com', 'name': 'Aarthi', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670677729-l8bRmJAZGeA1-D5ByJIGc', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-12-10 18:41:54,145 ERROR frappe Could not take error snapshot: characters_written
+Site: jobpro.local
+Form Dict: {'email': 'aarthi123@gmail.com', 'name': 'Aarthi', 'cmd': 'jobpro.custom.create_user'}
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/app.py", line 69, in application
+    response = frappe.api.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 45, in handle
+    data = execute_cmd(cmd)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/handler.py", line 83, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 1587, in call
+    return fn(*args, **newargs)
+  File "/home/teampro/jobpro-bench/apps/jobpro/jobpro/custom.py", line 13, in create_user
+    user.add_roles("Job Applicant")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 487, in add_roles
+    self.save()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 303, in save
+    return self._save(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 325, in _save
+    return self.insert()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 283, in insert
+    self.run_post_save_methods()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1076, in run_post_save_methods
+    self.run_method("on_update")
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 908, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1260, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 1242, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/model/document.py", line 905, in fn
+    return method_object(*args, **kwargs)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 124, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 264, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 335, in send_welcome_mail_to_user
+    self.send_login_mail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/core/doctype/user/user.py", line 367, in send_login_mail
+    frappe.sendmail(
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/__init__.py", line 708, in sendmail
+    builder.process(send_now=now)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 663, in process
+    send_now and q.send()
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 140, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1670677908-kBbSwJAcUKo1-F98qTtt1', 'JANISHA <janisha.g@groupteampro.com>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/teampro/jobpro-bench/apps/frappe/frappe/utils/error.py", line 140, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
