@@ -646,3 +646,34 @@
 2023-02-20 19:37:57,331 INFO /usr/local/bin/bench schedule
 2023-02-20 19:37:57,377 INFO /usr/local/bin/bench worker --queue default
 2023-02-20 19:37:57,377 INFO /usr/local/bin/bench worker --queue short
+2023-02-20 19:41:32,723 INFO /usr/local/bin/bench start
+2023-02-20 19:42:22,518 INFO /usr/local/bin/bench restart
+2023-02-20 19:42:23,194 INFO A newer version of bench is available: 5.14.4 → 5.16.1
+2023-02-20 19:42:29,556 INFO /usr/local/bin/bench start
+2023-02-20 19:43:09,046 INFO /usr/local/bin/bench disable-production
+2023-02-20 19:43:09,078 DEBUG sudo /usr/sbin/nginx -t
+2023-02-20 19:43:09,104 DEBUG sudo systemctl reload nginx
+2023-02-20 19:43:09,979 INFO A newer version of bench is available: 5.14.4 → 5.16.1
+2023-02-20 19:43:12,794 INFO /usr/local/bin/bench start
+2023-02-20 19:47:59,782 INFO /usr/local/bin/bench start
+2023-02-20 19:48:01,318 INFO /usr/local/bin/bench serve --port 8000
+2023-02-20 19:48:01,382 INFO /usr/local/bin/bench worker --queue short
+2023-02-20 19:48:01,411 INFO /usr/local/bin/bench schedule
+2023-02-20 19:48:01,414 INFO /usr/local/bin/bench worker --queue long
+2023-02-20 19:48:01,490 INFO /usr/local/bin/bench worker --queue default
+2023-02-20 19:48:01,502 INFO /usr/local/bin/bench watch
+2023-02-20 19:48:40,557 INFO /usr/local/bin/bench start
+2023-02-20 19:48:41,896 INFO /usr/local/bin/bench serve --port 8000
+2023-02-20 19:48:42,073 INFO /usr/local/bin/bench watch
+2023-02-20 19:48:42,138 INFO /usr/local/bin/bench schedule
+2023-02-20 19:48:42,146 INFO /usr/local/bin/bench worker --queue short
+2023-02-20 19:48:42,264 INFO /usr/local/bin/bench worker --queue default
+2023-02-20 19:48:42,330 INFO /usr/local/bin/bench worker --queue long
+2023-02-20 19:49:28,200 INFO /usr/local/bin/bench use jobpro.local
+2023-02-20 19:49:33,715 INFO /usr/local/bin/bench start
+2023-02-20 19:49:35,270 INFO /usr/local/bin/bench watch
+2023-02-20 19:49:35,432 INFO /usr/local/bin/bench serve --port 8000
+2023-02-20 19:49:35,448 INFO /usr/local/bin/bench worker --queue long
+2023-02-20 19:49:35,570 INFO /usr/local/bin/bench worker --queue default
+2023-02-20 19:49:35,588 INFO /usr/local/bin/bench worker --queue short
+2023-02-20 19:49:35,658 INFO /usr/local/bin/bench schedule
